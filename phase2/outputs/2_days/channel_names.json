@@ -1,0 +1,17 @@
+[
+  "crime_occurred",
+  "footfall",
+  "streetlight_score",
+  "dist_to_police_km",
+  "residential",
+  "commercial",
+  "market",
+  "bus_stand",
+  "entertainment",
+  "educational",
+  "industrial",
+  "hospital",
+  "population_density_per_sqkm",
+  "literacy_rate_pct",
+  "income_band"
+]

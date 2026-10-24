@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeRoute — Women's Safety Navigator</title>
+
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-void: #0B1220;
+    --panel: #121B2E;
+    --panel-2: #17213A;
+    --panel-border: #24314F;
+    --ink: #EAF0FA;
+    --muted: #8792A8;
+    --safe: #22D3B0;
+    --mid: #F5A524;
+    --risk: #EF4444;
+    --accent: #8B7CF6;
+    --shadow: 0 8px 28px rgba(0,0,0,0.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-void);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* ---------------- Sidebar ---------------- */
+  #sidebar {
+    background: var(--panel);
+    border-right: 1px solid var(--panel-border);
+    padding: 22px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-mark {
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), var(--safe));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700; font-size: 18px; color: #0B1220;
+    flex-shrink: 0;
+  }
+  .brand h1 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .brand span { color: var(--muted); font-size: 12px; display:block; margin-top: 1px;}
+
+  .offline-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.04em;
+    color: var(--safe);
+    background: rgba(34, 211, 176, 0.1);
+    border: 1px solid rgba(34, 211, 176, 0.35);
+    padding: 5px 10px;
+    border-radius: 999px;
+    width: fit-content;
+  }
+  .offline-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--safe);
+    box-shadow: 0 0 0 0 rgba(34,211,176,0.6);
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(34,211,176,0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(34,211,176,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,211,176,0); }
+  }
+
+  .panel-block {
+    background: var(--panel-2);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .panel-block h2 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 10px 0;
+  }
+  .panel-block p { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+
+  .btn {
+    width: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 11px 14px;
+    border-radius: 9px;
+    border: 1px solid var(--panel-border);
+    background: #1B2740;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+  }
+  .btn:hover { border-color: var(--accent); background: #202D4A; }
+  .btn:active { transform: scale(0.98); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn + .btn { margin-top: 8px; }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #0B1220; }
+  .btn-primary:hover { background: #9d8ff8; }
+
+  .route-cards { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .route-card {
+    border-radius: 9px;
+    padding: 10px 12px;
+    border: 1px solid var(--panel-border);
+    background: #101A2E;
+  }
+  .route-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .route-card .label.safe-label { color: var(--accent); }
+  .route-card .stats {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    margin-top: 5px;
+    display: flex; justify-content: space-between;
+  }
+  .route-card .stats span:last-child { color: var(--muted); }
+
+  .legend-scale {
+    height: 10px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--risk), var(--mid), var(--safe));
+    margin: 8px 0 6px 0;
+  }
+  .legend-labels {
+    display: flex; justify-content: space-between;
+    font-size: 10.5px; color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .layer-toggle { display: flex; align-items: center; justify-content: space-between; }
+  .switch { position: relative; width: 38px; height: 21px; flex-shrink: 0; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider {
+    position: absolute; cursor: pointer; inset: 0;
+    background: #2A3653; border-radius: 999px; transition: 0.2s;
+  }
+  .slider::before {
+    content: ""; position: absolute; height: 15px; width: 15px;
+    left: 3px; bottom: 3px; background: var(--ink); border-radius: 50%;
+    transition: 0.2s;
+  }
+  input:checked + .slider { background: var(--accent); }
+  input:checked + .slider::before { transform: translateX(17px); }
+
+  .footnote { font-size: 10.5px; color: var(--muted); line-height: 1.5; margin-top: auto; padding-top: 6px; }
+
+  #city-select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 9px;
+    border: 1px solid var(--panel-border);
+    background: #1B2740;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+  }
+  #city-select:focus { outline: none; border-color: var(--accent); }
+
+  .city-detect-badge {
+    margin-top: 8px;
+    font-size: 11.5px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: #101A2E;
+    border: 1px solid var(--panel-border);
+    color: var(--muted);
+  }
+  .city-detect-badge.auto { color: var(--safe); border-color: rgba(34,211,176,0.35); }
+  .city-detect-badge.manual { color: var(--mid); border-color: rgba(245,165,36,0.35); }
+  .city-detect-badge.warn { color: var(--risk); border-color: rgba(239,68,68,0.35); }
+
+  /* ---------------- Location mode (Online / Offline) ---------------- */
+  .mode-switch { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .mode-option {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--ink);
+    padding: 8px 10px;
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    cursor: pointer;
+    background: #101A2E;
+  }
+  .mode-option input { accent-color: var(--accent); width: 15px; height: 15px; flex-shrink: 0; }
+  .mode-option:has(input:checked) { border-color: var(--accent); background: #1B2740; }
+
+  .location-status {
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #101A2E;
+    border: 1px solid var(--panel-border);
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .location-status.status-ok { color: var(--safe); border-color: rgba(34,211,176,0.35); }
+  .location-status.status-error { color: var(--risk); border-color: rgba(239,68,68,0.35); }
+  .location-status.status-info { color: var(--mid); }
+
+  #location-details-expand { font-size: 12px; color: var(--muted); }
+  #location-details-expand summary { cursor: pointer; color: var(--accent); font-size: 12px; padding: 2px 0; }
+  #location-details-body { margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); line-height: 1.6; }
+  #location-details-body .detail-line { margin-bottom: 2px; }
+
+  /* ---------------- Map area ---------------- */
+  #map { width: 100%; height: 100%; background: var(--bg-void); }
+  .leaflet-container { background: var(--bg-void); }
+  /* fake a dark basemap style on top of standard (light) OSM tiles,
+     since we're avoiding CARTO's now key-gated dark tiles */
+  .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9) saturate(0.6); }
+
+  /* ---------------- SOS button ---------------- */
+  #sos-btn {
+    position: absolute;
+    bottom: 28px; right: 28px;
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: var(--risk);
+    border: none;
+    color: white;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    animation: sos-pulse 2.2s infinite;
+  }
+  @keyframes sos-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239,68,68,0.55), var(--shadow); }
+    70% { box-shadow: 0 0 0 16px rgba(239,68,68,0), var(--shadow); }
+    100% { box-shadow: 0 0 0 0 rgba(239,68,68,0), var(--shadow); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #sos-btn, .offline-badge::before { animation: none; }
+  }
+
+  /* ---------------- Risk compass (click readout) ---------------- */
+  #risk-compass {
+    position: absolute;
+    display: none;
+    z-index: 900;
+    width: 118px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    pointer-events: none;
+    transform: translate(-50%, -125%);
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  #risk-compass.visible { opacity: 1; transform: translate(-50%, -135%); }
+  .compass-ring {
+    width: 66px; height: 66px;
+    border-radius: 50%;
+    margin: 0 auto 6px auto;
+    display: flex; align-items: center; justify-content: center;
+    background: conic-gradient(var(--ring-color, var(--safe)) calc(var(--score, 50) * 1%), #24314F 0);
+  }
+  .compass-ring::after {
+    content: attr(data-score);
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: var(--panel);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px; font-weight: 500;
+  }
+  .compass-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ---------------- SOS modal ---------------- */
+  #sos-overlay {
+    position: fixed; inset: 0;
+    background: rgba(5,8,16,0.72);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 2000;
+  }
+  #sos-overlay.visible { display: flex; }
+  #sos-modal {
+    width: 360px;
+    background: var(--panel);
+    border: 1px solid var(--risk);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  #sos-modal h3 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: var(--risk);
+    font-size: 19px;
+    margin: 0 0 10px 0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #sos-modal p { font-size: 13px; color: var(--ink); line-height: 1.55; margin: 0 0 14px 0; }
+  #sos-modal .detail-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  /* Leaflet popup restyle */
+  .leaflet-popup-content-wrapper { background: var(--panel); color: var(--ink); border-radius: 10px; }
+  .leaflet-popup-tip { background: var(--panel); }
+  .leaflet-popup-content { font-family: 'Inter', sans-serif; font-size: 12.5px; }
+
+  .marker-dot { border-radius: 50%; border: 2px solid #0B1220; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">SR</div>
+      <h1>SafeRoute<span id="brand-subtitle">Crime-prediction &amp; women's safety navigator</span></h1>
+      <!-- Only works when served by phase7's app.py (which provides /logout).
+           Hidden automatically if the page is opened without that backend. -->
+      <a id="logout-link" href="/logout" style="display:none;margin-left:auto;font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--panel-border);border-radius:8px;padding:6px 10px;">Log out</a>
+    </div>
+
+    <div class="offline-badge">OFFLINE-READY ROUTING ENGINE</div>
+
+    <div class="panel-block">
+      <h2>City</h2>
+      <select id="city-select" class="btn" style="cursor:pointer;">
+        <option value="auto">Auto-detect (from GPS)</option>
+      </select>
+      <div id="city-detect-badge" class="city-detect-badge">—</div>
+      <p style="margin-top:8px;">Auto-detect uses real geofencing against each city's boundary — never distance from a city center. Picking a city manually overrides the dataset for testing only: it never moves your actual GPS/saved location marker.</p>
+    </div>
+
+    <div class="panel-block">
+      <h2>How to use</h2>
+      <p>Choose Online or Offline location mode below — that's always where your route starts from. Tap anywhere on the map to preview its safety score without changing your route start. Then request a route to the nearest police station or hospital — the router prefers safer streets over the shortest ones.</p>
+    </div>
+
+    <div class="panel-block">
+      <h2>Location Mode</h2>
+      <div class="mode-switch">
+        <label class="mode-option">
+          <input type="radio" name="loc-mode" id="mode-online" value="online" checked>
+          <span>🟢 Online — use your current location</span>
+        </label>
+        <label class="mode-option">
+          <input type="radio" name="loc-mode" id="mode-offline" value="offline">
+          <span>⚪ Offline — use your last recorded location</span>
+        </label>
+      </div>
+      <div id="location-status" class="location-status status-info">Getting your current location…</div>
+      <details id="location-details-expand">
+        <summary>Location details</summary>
+        <div id="location-details-body"></div>
+      </details>
+    </div>
+
+    <div class="panel-block">
+      <h2>Get a safe route</h2>
+      <button class="btn btn-primary" id="btn-police" disabled>🛡 Route to Nearest Police</button>
+      <button class="btn" id="btn-hospital" disabled>✚ Route to Nearest Hospital</button>
+      <button class="btn" id="btn-reset" disabled>Clear route</button>
+    </div>
+
+    <div class="panel-block" id="route-stats-block" style="display:none;">
+      <h2>Route comparison</h2>
+      <div class="route-cards">
+        <div class="route-card">
+          <div class="label safe-label">Safety-weighted route</div>
+          <div class="stats"><span id="safe-dist">–</span><span id="safe-score">–</span></div>
+        </div>
+        <div class="route-card">
+          <div class="label">Shortest route</div>
+          <div class="stats"><span id="short-dist">–</span><span id="short-score">–</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-block">
+      <div class="layer-toggle">
+        <h2 style="margin:0;">Safety heatmap</h2>
+        <label class="switch">
+          <input type="checkbox" id="toggle-heatmap" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="legend-scale"></div>
+      <div class="legend-labels"><span>0 · Risky</span><span>50</span><span>100 · Safe</span></div>
+    </div>
+
+    <div class="panel-block" id="error-banner" style="display:none; border-color: var(--risk);">
+      <h2 style="color: var(--risk);">⚠ Data failed to load</h2>
+      <p id="error-banner-text"></p>
+    </div>
+
+    <p class="footnote" id="footnote-crime-note">
+      Safety scores are model estimates, not official safety information.
+    </p>
+  </aside>
+
+  <div style="position:relative;">
+    <div id="map"></div>
+    <button id="sos-btn">SOS</button>
+    <div id="risk-compass">
+      <div class="compass-ring" id="compass-ring" data-score="–"></div>
+      <div class="compass-label">Safety score</div>
+    </div>
+  </div>
+</div>
+
+<div id="sos-overlay">
+  <div id="sos-modal">
+    <h3>🚨 SOS Alert</h3>
+    <p id="sos-text">Locating you…</p>
+    <div id="sos-details"></div>
+    <button class="btn btn-primary" id="sos-close" style="margin-top:10px;">Dismiss</button>
+  </div>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script>
+/* =====================================================================
+   SafeRoute Chennai — client-side app
+   Loads pre-computed Phase 1/4 data (safety_cells.geojson, graph.json,
+   police_stations.geojson, hospitals.geojson) and runs a live Dijkstra
+   routing algorithm entirely in the browser. No backend required.
+   ===================================================================== */
+
+const CENTER = [13.03, 80.22];   // roughly the middle of the Chennai grid
+
+const map = L.map('map', { zoomControl: true, attributionControl: true })
+  .setView(CENTER, 12);
+
+// NOTE ON TILES: CARTO's free basemap tiles now require an API key
+// (a recent policy change on their end). To avoid making you sign up
+// for one, we use standard OpenStreetMap tiles instead -- genuinely
+// free, no key, no account -- and fake the dark aesthetic with a CSS
+// filter on the tile pane. If you'd rather have CARTO's native dark
+// style, get a free key at https://carto.com/basemaps/apikey and swap
+// the URL below for theirs with ?key=YOUR_KEY appended.
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  subdomains: 'abc',
+  maxZoom: 19,
+  className: 'dark-tiles',
+}).addTo(map);
+
+let graph = null;
+let adjacency = null;
+let currentLocationMarker = null;
+let destinationMarker = null;
+let safeRouteLayer = null;
+let shortRouteLayer = null;
+let nearestStartNodeId = null;
+
+// ---------------------------------------------------------------------
+// Color scale for safety scores: red (risky) -> amber (mid) -> teal (safe)
+// ---------------------------------------------------------------------
+function scoreToColor(score) {
+  const stops = [
+    { at: 0,   c: [239, 68, 68] },
+    { at: 50,  c: [245, 165, 36] },
+    { at: 100, c: [34, 211, 176] },
+  ];
+  let lo = stops[0], hi = stops[stops.length - 1];
+  for (let i = 0; i < stops.length - 1; i++) {
+    if (score >= stops[i].at && score <= stops[i+1].at) { lo = stops[i]; hi = stops[i+1]; break; }
+  }
+  const t = hi.at === lo.at ? 0 : (score - lo.at) / (hi.at - lo.at);
+  const rgb = lo.c.map((v, i) => Math.round(v + (hi.c[i] - v) * t));
+  return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+}
+
+// ---------------------------------------------------------------------
+// Binary min-heap Dijkstra (verified against Python's networkx output
+// during development -- see phase6/test_dijkstra.js)
+// ---------------------------------------------------------------------
+class MinHeap {
+  constructor() { this.items = []; }
+  push(item) {
+    this.items.push(item);
+    let i = this.items.length - 1;
+    while (i > 0) {
+      const parent = (i - 1) >> 1;
+      if (this.items[parent][0] <= this.items[i][0]) break;
+      [this.items[parent], this.items[i]] = [this.items[i], this.items[parent]];
+      i = parent;
+    }
+  }
+  pop() {
+    const top = this.items[0];
+    const last = this.items.pop();
+    if (this.items.length > 0) {
+      this.items[0] = last;
+      let i = 0;
+      while (true) {
+        let left = 2*i+1, right = 2*i+2, smallest = i;
+        if (left < this.items.length && this.items[left][0] < this.items[smallest][0]) smallest = left;
+        if (right < this.items.length && this.items[right][0] < this.items[smallest][0]) smallest = right;
+        if (smallest === i) break;
+        [this.items[i], this.items[smallest]] = [this.items[smallest], this.items[i]];
+        i = smallest;
+      }
+    }
+    return top;
+  }
+  get size() { return this.items.length; }
+}
+
+function dijkstra(source, target, weightIndex) {
+  // weightIndex: 1 = safety-weighted cost, 2 = pure physical distance
+  const dist = new Map();
+  const prev = new Map();
+  const heap = new MinHeap();
+  dist.set(source, 0);
+  heap.push([0, source]);
+
+  while (heap.size > 0) {
+    const [d, u] = heap.pop();
+    if (d > (dist.get(u) ?? Infinity)) continue;
+    if (u === target) break;
+    for (const edge of adjacency.get(u)) {
+      const v = edge[0], w = edge[weightIndex];
+      const nd = d + w;
+      if (nd < (dist.get(v) ?? Infinity)) {
+        dist.set(v, nd);
+        prev.set(v, u);
+        heap.push([nd, v]);
+      }
+    }
+  }
+  if (!dist.has(target)) return null;
+  const path = [target];
+  let cur = target;
+  while (cur !== source) { cur = prev.get(cur); path.unshift(cur); }
+  return { path, cost: dist.get(target) };
+}
+
+function haversineKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+function nearestNode(lat, lon) {
+  let best = null, bestDist = Infinity;
+  for (const node of graph.nodes) {
+    const d = haversineKm(lat, lon, node.lat, node.lon);
+    if (d < bestDist) { bestDist = d; best = node; }
+  }
+  return best;
+}
+
+const nodeById = new Map();
+
+// =====================================================================
+// ONLINE / OFFLINE LOCATION MODE
+// ---------------------------------------------------------------------
+// "Online Mode"  = use the browser's REAL GPS (navigator.geolocation).
+// "Offline Mode" = use the last GPS fix saved in localStorage.
+// This is a separate concept from navigator.onLine (internet
+// connectivity) -- a device can have GPS with no internet, or internet
+// with GPS turned off, so the two are never conflated here.
+// =====================================================================
+const LAST_LOCATION_KEY = 'lastRecordedLocation';
+const LOCATION_MODE_KEY = 'locationViewMode';   // remembers which mode (online/offline) was selected, across reloads
+let locationMode = 'online';      // 'online' | 'offline'
+let currentGPSLocation = null;    // the latest successful GPS fix this session, {latitude,longitude,accuracy,timestamp}
+let usingOfflineFallbackWhileOnline = false; // true only when Online Mode's GPS failed and we're explicitly showing the last saved fix as a labeled fallback
+let geoWatchId = null;
+let pendingLocationFix = null;    // a GPS/localStorage fix that arrived
+                                   // before graph.json finished loading
+
+// ---------------------------------------------------------------------
+// Automatic city detection (Phase 4). cityRegistry/activeCityKey/
+// loadCityData are defined further down (multi-city support), but
+// declared here with `let` so the functions in this section -- called
+// from Online/Offline location handling -- can see them by the time
+// they're actually invoked (geolocation callbacks always fire after the
+// whole script has finished its first pass).
+// ---------------------------------------------------------------------
+let cityRegistry = null;
+let activeCityKey = null;
+let manualCityOverride = null;     // null = auto-detect from coordinates; 'chennai'|'coimbatore' = manual testing override
+let pendingCityDetectionFix = null; // a location fix that arrived before cities.json finished loading
+
+// Standard ray-casting point-in-polygon test. `ring` is a closed list of
+// [lon, lat] pairs. This is REAL geofencing against a boundary shape --
+// deliberately not a "distance from a city center" check.
+function pointInPolygon(lat, lon, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i];
+    const [xj, yj] = ring[j];
+    const intersects = ((yi > lat) !== (yj > lat)) &&
+      (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+    if (intersects) inside = !inside;
+  }
+  return inside;
+}
+
+// Which SUPPORTED city (if any) a real coordinate falls inside, using
+// each city's boundary polygon from cities.json. Returns null if the
+// coordinate is outside every supported city -- callers must not guess.
+function detectCityFromCoords(lat, lon) {
+  if (!cityRegistry) return null;
+  for (const key of Object.keys(cityRegistry)) {
+    const ring = cityRegistry[key].boundaryPolygon;
+    if (ring && pointInPolygon(lat, lon, ring)) return key;
+  }
+  return null;
+}
+
+function updateCityDetectionBadge(detectedCityKey, manualOverrideKey) {
+  const el = document.getElementById('city-detect-badge');
+  if (!el) return;
+  if (manualOverrideKey) {
+    el.textContent = `🧪 Manually selected: ${cityRegistry?.[manualOverrideKey]?.name || manualOverrideKey} (testing mode)`;
+    el.className = 'city-detect-badge manual';
+  } else if (detectedCityKey && cityRegistry && cityRegistry[detectedCityKey]) {
+    el.textContent = `📍 Automatically detected: ${cityRegistry[detectedCityKey].name}`;
+    el.className = 'city-detect-badge auto';
+  } else {
+    el.textContent = '⚠ Could not auto-detect a supported city';
+    el.className = 'city-detect-badge warn';
+  }
+}
+
+// Applies a resolved location fix (a real Online GPS reading or a real
+// Offline saved reading -- never a guess) to the whole app: detects or
+// confirms its city via real geofencing, honors a manual testing
+// override if one is active, switches the loaded city dataset only when
+// needed, and places the marker on the REAL coordinates -- the marker
+// never moves just because the dataset changed (manual override case).
+function applyLocationFix(loc, opts) {
+  const { markerLabel, detailsLabel, baseStatus, baseKind, isOnlineFix } = opts;
+  if (!cityRegistry) {
+    // cities.json hasn't loaded yet -- queue this fix and replay it once
+    // it has, instead of wrongly reporting "outside supported cities".
+    // Pass the ENTIRE opts object through unchanged (including
+    // isOnlineFix) so the replay below still corrects a null `city` that
+    // was only null because detection wasn't possible yet.
+    pendingCityDetectionFix = { loc, opts };
+    return;
+  }
+
+  const storedCityValid = loc.city && cityRegistry[loc.city];
+  const detected = storedCityValid ? loc.city : detectCityFromCoords(loc.latitude, loc.longitude);
+  const cityForDataset = manualCityOverride || detected;
+
+  // If this is the Online GPS fix itself (not a later Offline read) and
+  // cities.json hadn't finished loading at the moment it was first saved
+  // (so `city` was recorded as null), correct that now -- this is still
+  // completing the SAME successful GPS response, not a separate,
+  // unauthorized write to the saved location.
+  if (isOnlineFix && loc.city !== detected) {
+    loc.city = detected;
+    saveLastRecordedLocation(loc);
+  }
+
+  updateCityDetectionBadge(detected, manualCityOverride);
+
+  const finish = () => {
+    if (!cityForDataset) {
+      // Genuinely outside both supported cities, and no manual override
+      // to fall back on -- say so plainly, never pretend it's Chennai or
+      // Coimbatore.
+      setLocationStatus('⚠ Your current location is outside the supported cities.', 'error');
+      if (currentLocationMarker) { map.removeLayer(currentLocationMarker); currentLocationMarker = null; }
+      nearestStartNodeId = null;
+      clearRoutes();
+      updateRouteButtonsEnabled();
+      renderLocationDetails(detailsLabel, loc);
+      return;
+    }
+    placeLocationMarker(loc.latitude, loc.longitude, markerLabel);
+    renderLocationDetails(detailsLabel, loc);
+    if (manualCityOverride && !detected) {
+      setLocationStatus(`⚠ Your real location is outside every supported city's boundary — showing it on the manually selected ${cityRegistry[manualCityOverride].name} dataset (testing mode only).`, 'info');
+    } else {
+      setLocationStatus(baseStatus, baseKind);
+    }
+  };
+
+  if (cityForDataset && cityForDataset !== activeCityKey) {
+    loadCityData(cityForDataset, { source: manualCityOverride ? 'manual' : 'auto' }).then(finish);
+  } else {
+    finish();
+  }
+}
+
+function saveLastRecordedLocation(loc) {
+  // Only ever called with a location that just came back successfully
+  // from the GPS -- never with null/invalid coordinates.
+  try {
+    localStorage.setItem(LAST_LOCATION_KEY, JSON.stringify(loc));
+  } catch (e) {
+    console.warn('Could not save last location to localStorage:', e);
+  }
+
+  // Also persist to the account's database row (phase7), if this page is
+  // being served through the Flask backend and the visitor is logged in.
+  // Silently does nothing (no error, no retry) when there's no backend --
+  // e.g. if someone still opens this file via plain "python -m
+  // http.server" instead of phase7's app.py -- so the map keeps working
+  // standalone either way.
+  try {
+    fetch('/api/location', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(loc),
+      cache: 'no-store',
+    }).catch(() => {});
+  } catch (e) { /* no backend reachable -- fine, localStorage already has it */ }
+}
+
+function loadLastRecordedLocation() {
+  let raw;
+  try {
+    raw = localStorage.getItem(LAST_LOCATION_KEY);
+  } catch (e) {
+    return null; // localStorage blocked (private mode, disabled, etc.)
+  }
+  if (!raw) return null;
+  try {
+    const loc = JSON.parse(raw);
+    const latOk = typeof loc.latitude === 'number' && loc.latitude >= -90 && loc.latitude <= 90;
+    const lonOk = typeof loc.longitude === 'number' && loc.longitude >= -180 && loc.longitude <= 180;
+    if (!latOk || !lonOk) return null; // malformed -- treat as "no saved location"
+    return loc;
+  } catch (e) {
+    return null; // corrupted JSON -- treat as "no saved location"
+  }
+}
+
+function setLocationStatus(text, kind) {
+  // kind: 'info' | 'ok' | 'error'
+  const el = document.getElementById('location-status');
+  if (!el) return;
+  el.textContent = text;
+  el.className = 'location-status status-' + (kind || 'info');
+}
+
+function renderLocationDetails(label, loc) {
+  const body = document.getElementById('location-details-body');
+  if (!body) return;
+  const ts = loc.timestamp ? new Date(loc.timestamp).toLocaleString() : '–';
+  body.innerHTML = `
+    <div class="detail-line">${label}</div>
+    <div class="detail-line">Latitude: ${loc.latitude.toFixed(5)}</div>
+    <div class="detail-line">Longitude: ${loc.longitude.toFixed(5)}</div>
+    <div class="detail-line">Accuracy: ${loc.accuracy != null ? '±' + Math.round(loc.accuracy) + ' m' : '–'}</div>
+    <div class="detail-line">Recorded: ${ts}</div>
+  `;
+}
+
+// The route system's ONLY source of truth for "where does the route
+// start". It is never a fixed/hardcoded coordinate -- it is always
+// re-derived from whichever location mode is currently selected:
+//   Online  -> currentGPSLocation (the latest real GPS fix)
+//   Offline -> lastRecordedLocation read fresh from localStorage
+// Returns null when neither is available, so callers can refuse to
+// route instead of silently substituting a default location.
+function getRouteStartLocation() {
+  if (locationMode === 'online') {
+    if (currentGPSLocation) {
+      return { lat: currentGPSLocation.latitude, lon: currentGPSLocation.longitude, label: 'Current Location' };
+    }
+    // GPS hasn't produced a fix yet this session (still loading, denied,
+    // or unavailable). Only use the saved fix if it's the one actually
+    // being shown on the map right now as an explicit, labeled fallback.
+    const last = loadLastRecordedLocation();
+    if (last && usingOfflineFallbackWhileOnline) {
+      return { lat: last.latitude, lon: last.longitude, label: 'Last Recorded Location (fallback)' };
+    }
+    return null;
+  }
+  // Offline mode: always re-read localStorage fresh, never cache/guess.
+  const last = loadLastRecordedLocation();
+  if (!last) return null;
+  return { lat: last.latitude, lon: last.longitude, label: 'Last Recorded Location' };
+}
+
+// Mode-aware message for "there's nothing to route from right now" --
+// always points the user at the real fix, never a silent default.
+function noRouteStartMessage() {
+  return locationMode === 'offline'
+    ? 'No saved location found. Please switch to Online Mode once to record your location, then try again.'
+    : 'Still getting your current location. Please wait a moment, or switch to Offline Mode if you have a previously saved location.';
+}
+
+// Enables the routing buttons only when there is a real, valid starting
+// location for the current mode -- never a hardcoded default.
+function updateRouteButtonsEnabled() {
+  const hasStart = !!graph && getRouteStartLocation() !== null;
+  document.getElementById('btn-police').disabled = !hasStart;
+  document.getElementById('btn-hospital').disabled = !hasStart;
+  document.getElementById('btn-reset').disabled = !hasStart;
+}
+
+// Places/updates the "you are here" marker AND recomputes the nearest
+// routable graph node from the SAME lat/lon, so the marker on screen and
+// the route's starting point are always built from identical coordinates.
+// Returns the nearest node, or undefined if graph.json hasn't finished
+// loading yet (in which case the fix is queued and applied once it has).
+function placeLocationMarker(lat, lon, popupLabel) {
+  if (!graph) {
+    pendingLocationFix = { lat, lon, popupLabel };
+    return;
+  }
+  const nearest = nearestNode(lat, lon);
+  nearestStartNodeId = nearest.id;
+
+  if (currentLocationMarker) map.removeLayer(currentLocationMarker);
+  currentLocationMarker = L.circleMarker([lat, lon], {
+    radius: 7, fillColor: '#EAF0FA', color: '#8B7CF6', weight: 2, fillOpacity: 1,
+  }).addTo(map).bindPopup(popupLabel).openPopup();
+
+  map.panTo([lat, lon]);
+  clearRoutes();
+  updateRouteButtonsEnabled();
+  return nearest;
+}
+
+function requestOnlineLocation() {
+  setLocationStatus('Getting your current location…', 'info');
+
+  if (!('geolocation' in navigator)) {
+    setLocationStatus('⚠ This browser does not support geolocation.', 'error');
+    offerOfflineFallback();
+    return;
+  }
+
+  const onSuccess = (pos) => {
+    const loc = {
+      latitude: pos.coords.latitude,
+      longitude: pos.coords.longitude,
+      accuracy: pos.coords.accuracy,
+      timestamp: new Date().toISOString(),
+    };
+    // Determine the city from the REAL coordinates via geofencing (null
+    // if outside every supported city -- recorded honestly, never guessed).
+    loc.city = detectCityFromCoords(loc.latitude, loc.longitude);
+    // Save ONLY on a successful GPS fix -- never with invalid/null data.
+    currentGPSLocation = loc;
+    usingOfflineFallbackWhileOnline = false;
+    saveLastRecordedLocation(loc);
+    applyLocationFix(loc, {
+      markerLabel: '📍 Current Location',
+      detailsLabel: 'Current Location (Online)',
+      baseStatus: '🟢 Location updated — using your current GPS location',
+      baseKind: 'ok',
+      isOnlineFix: true,
+    });
+  };
+
+  const onError = (err) => {
+    let msg;
+    switch (err.code) {
+      case err.PERMISSION_DENIED:
+        msg = 'Location permission denied.'; break;
+      case err.POSITION_UNAVAILABLE:
+        msg = 'Location unavailable right now.'; break;
+      case err.TIMEOUT:
+        msg = 'Getting your location timed out.'; break;
+      default:
+        msg = 'Could not get your location.';
+    }
+    setLocationStatus('⚠ ' + msg, 'error');
+    offerOfflineFallback();
+  };
+
+  navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+    enableHighAccuracy: true, timeout: 12000, maximumAge: 0,
+  });
+
+  // Continuous updates while Online Mode stays selected (if the device
+  // supports it -- harmless no-op otherwise).
+  if (geoWatchId !== null) navigator.geolocation.clearWatch(geoWatchId);
+  geoWatchId = navigator.geolocation.watchPosition(onSuccess, () => {}, {
+    enableHighAccuracy: true, maximumAge: 15000,
+  });
+}
+
+// If GPS fails while still in Online Mode, fall back to the last saved
+// fix -- but label it honestly as a fallback, never as "current".
+function offerOfflineFallback() {
+  const last = loadLastRecordedLocation();
+  if (!last) { updateRouteButtonsEnabled(); return; }
+  usingOfflineFallbackWhileOnline = true;
+  applyLocationFix(last, {
+    markerLabel: '🟠 Last Recorded Location (GPS unavailable)',
+    detailsLabel: 'Last Recorded Location — fallback, GPS unavailable',
+    baseStatus: '🟠 GPS unavailable — showing your last recorded location as a fallback',
+    baseKind: 'error',
+  });
+}
+
+function useOfflineMode() {
+  if (geoWatchId !== null) { navigator.geolocation.clearWatch(geoWatchId); geoWatchId = null; }
+  usingOfflineFallbackWhileOnline = false;
+  const last = loadLastRecordedLocation();
+  if (!last) {
+    setLocationStatus('No previous location available. Switch to Online Mode once to record your location.', 'error');
+    const body = document.getElementById('location-details-body');
+    if (body) body.innerHTML = '';
+    if (currentLocationMarker) { map.removeLayer(currentLocationMarker); currentLocationMarker = null; }
+    nearestStartNodeId = null;
+    clearRoutes();
+    updateRouteButtonsEnabled();
+    updateCityDetectionBadge(null, manualCityOverride);
+    return;
+  }
+  // Offline Mode: use the city STORED with this saved fix if it's valid;
+  // applyLocationFix() falls back to re-detecting from coordinates only
+  // if that stored city is missing/invalid (e.g. a fix saved before
+  // Phase 4 added the `city` field).
+  applyLocationFix(last, {
+    markerLabel: '🟠 Last Recorded Location',
+    detailsLabel: 'Last Recorded Location (Offline)',
+    baseStatus: '⚪ Using your last recorded location',
+    baseKind: 'ok',
+  });
+}
+
+function setLocationMode(mode) {
+  locationMode = mode;
+  try { localStorage.setItem(LOCATION_MODE_KEY, mode); } catch (e) { /* ignore */ }
+  if (mode === 'online') requestOnlineLocation();
+  else useOfflineMode();
+}
+
+document.getElementById('mode-online').addEventListener('change', (e) => {
+  if (e.target.checked) setLocationMode('online');
+});
+document.getElementById('mode-offline').addEventListener('change', (e) => {
+  if (e.target.checked) setLocationMode('offline');
+});
+
+// Restore whichever mode was last selected (so reloading the app while
+// in Offline Mode keeps using the saved location instead of silently
+// jumping back to requesting fresh GPS). Defaults to Online on first visit.
+let savedMode = 'online';
+try {
+  const stored = localStorage.getItem(LOCATION_MODE_KEY);
+  if (stored === 'online' || stored === 'offline') savedMode = stored;
+} catch (e) { /* ignore */ }
+document.getElementById('mode-online').checked = (savedMode === 'online');
+document.getElementById('mode-offline').checked = (savedMode === 'offline');
+setLocationMode(savedMode);
+
+// ---------------------------------------------------------------------
+// Multi-city support. frontend_data/cities.json lists each supported
+// city's own data files, default map center/zoom, boundary polygon and
+// crime-data note. Switching city re-fetches ONLY that city's files and
+// rebuilds the heatmap/graph/POI layers -- it never touches the
+// Online/Offline location logic above (that stays city-agnostic).
+// Loading can be triggered automatically (real-coordinate geofencing via
+// applyLocationFix()/detectCityFromCoords(), above) or manually (the
+// city-select dropdown's change listener, below) -- see manualCityOverride.
+// ---------------------------------------------------------------------
+let policeFeatures = [], hospitalFeatures = [];
+let heatmapLayer = null;
+// cityRegistry / activeCityKey / manualCityOverride are declared earlier,
+// alongside the automatic-city-detection functions that need them.
+const poiLayerGroup = L.layerGroup().addTo(map);
+
+function showErrorBanner(text) {
+  document.getElementById('error-banner').style.display = 'block';
+  document.getElementById('error-banner-text').textContent = text;
+}
+function hideErrorBanner() {
+  document.getElementById('error-banner').style.display = 'none';
+}
+
+async function loadCityData(cityKey, opts = {}) {
+  const city = cityRegistry && cityRegistry[cityKey];
+  if (!city) return;
+  console.log(`Loading city "${cityKey}" (source: ${opts.source || 'unspecified'})`);
+
+  try {
+    // cache: 'no-store' -- these data files get regenerated during
+    // development (new OSM downloads, new safety scores, etc.), and a
+    // plain fetch() would otherwise happily serve a stale cached copy
+    // from the browser's disk cache forever, since python's http.server
+    // sends no cache-control headers telling it not to. Always get the
+    // current file from disk.
+    const [safetyCells, graphData, police, hospitals] = await Promise.all([
+      fetch(city.dataFiles.safetyCells, { cache: 'no-store' }).then(r => r.json()),
+      fetch(city.dataFiles.graph, { cache: 'no-store' }).then(r => r.json()),
+      fetch(city.dataFiles.police, { cache: 'no-store' }).then(r => r.json()),
+      fetch(city.dataFiles.hospitals, { cache: 'no-store' }).then(r => r.json()),
+    ]);
+
+    activeCityKey = cityKey;
+    document.getElementById('brand-subtitle').textContent =
+      `${city.name} crime-prediction & women's safety navigator`;
+    // The methodology differs per city (Chennai: ConvLSTM model; Coimbatore:
+    // zone-level aggregate -- see cities.json's crimeDataNote), so the
+    // disclaimer must say which one is actually in effect, not a fixed
+    // Chennai-specific description left over from before Coimbatore existed.
+    const footnoteEl = document.getElementById('footnote-crime-note');
+    if (footnoteEl) {
+      footnoteEl.textContent = city.crimeDataNote
+        ? `${city.crimeDataNote} Not a substitute for official safety information.`
+        : 'Safety scores are model estimates, not official safety information.';
+    }
+
+    // Tear down the PREVIOUS city's layers before building the new one.
+    if (heatmapLayer) { map.removeLayer(heatmapLayer); heatmapLayer = null; }
+    poiLayerGroup.clearLayers();
+    clearRoutes();
+
+    graph = graphData;
+    nodeById.clear();
+    for (const n of graph.nodes) nodeById.set(n.id, n);
+
+    adjacency = new Map();
+    for (const n of graph.nodes) adjacency.set(n.id, []);
+    for (const [a, b, safetyWeight, physicalDist] of graph.edges) {
+      adjacency.get(a).push([b, safetyWeight, physicalDist]);
+      adjacency.get(b).push([a, safetyWeight, physicalDist]);
+    }
+
+    heatmapLayer = L.geoJSON(safetyCells, {
+      style: (feature) => ({
+        fillColor: scoreToColor(feature.properties.safety_score),
+        fillOpacity: 0.55,
+        weight: 0,
+      }),
+      // NOTE: deliberately no bindPopup() here -- see the map click
+      // handler below for why (Leaflet popups block map clicks).
+    });
+    if (document.getElementById('toggle-heatmap').checked) heatmapLayer.addTo(map);
+
+    policeFeatures = police.features;
+    hospitalFeatures = hospitals.features;
+
+    const policeIcon = (f) => L.circleMarker(
+      [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+      { radius: 5, className: 'marker-dot', fillColor: '#8B7CF6', color: '#0B1220', weight: 1.5, fillOpacity: 1 }
+    ).bindPopup(`🛡 ${f.properties.name || 'Police Station'}<br>Safety score: ${f.properties.safety_score}`);
+
+    const hospitalIcon = (f) => L.circleMarker(
+      [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+      { radius: 5, className: 'marker-dot', fillColor: '#22D3B0', color: '#0B1220', weight: 1.5, fillOpacity: 1 }
+    ).bindPopup(`✚ ${f.properties.name || 'Hospital'}<br>Safety score: ${f.properties.safety_score}`);
+
+    police.features.forEach(f => policeIcon(f).addTo(poiLayerGroup));
+    hospitals.features.forEach(f => hospitalIcon(f).addTo(poiLayerGroup));
+
+    // Re-resolve the CURRENT real location (GPS or last-recorded -- never
+    // a tap, never invented) against this city's newly loaded graph, so
+    // the marker and the route start point stay on the same real-world
+    // coordinates no matter which city's map is being shown. The city's
+    // own default center is used ONLY when no real location exists yet.
+    if (currentLocationMarker) { map.removeLayer(currentLocationMarker); currentLocationMarker = null; }
+    nearestStartNodeId = null;
+    const start = getRouteStartLocation();
+    if (start) {
+      const popupLabel = start.label === 'Current Location' ? '📍 Current Location'
+        : start.label === 'Last Recorded Location' ? '🟠 Last Recorded Location'
+        : `🟠 ${start.label}`;
+      placeLocationMarker(start.lat, start.lon, popupLabel);
+      map.setView([start.lat, start.lon], city.zoom || 13);
+    } else {
+      // No GPS/saved location available for map initialization -- fall
+      // back to this city's documented default center, never to the
+      // user's location (there isn't one yet).
+      map.setView(city.center, city.zoom || 12);
+    }
+
+    // Apply any GPS/localStorage fix that arrived before this load finished.
+    if (pendingLocationFix) {
+      const fix = pendingLocationFix;
+      pendingLocationFix = null;
+      placeLocationMarker(fix.lat, fix.lon, fix.popupLabel);
+    }
+
+    updateRouteButtonsEnabled();
+    hideErrorBanner();
+    console.log(`[${city.name}] Loaded: ${safetyCells.features.length} cells, ${graph.nodes.length} routing nodes, ${police.features.length} police, ${hospitals.features.length} hospitals`);
+  } catch (err) {
+    console.error(`Failed to load ${cityKey} data:`, err);
+    showErrorBanner(`${err.message}. Check: are you running this via ` +
+      `"python3 -m http.server" from inside phase6/app (not opening index.html ` +
+      `directly)? Is frontend_data/ (and frontend_data/${cityKey}/, if this city ` +
+      `uses a subfolder) present next to index.html? Check the browser console (F12).`);
+  }
+}
+
+fetch('frontend_data/cities.json', { cache: 'no-store' }).then(r => r.json()).then(registry => {
+  cityRegistry = registry;
+  const sel = document.getElementById('city-select');
+  sel.innerHTML = '';
+  const autoOpt = document.createElement('option');
+  autoOpt.value = 'auto';
+  autoOpt.textContent = 'Auto-detect (from GPS)';
+  sel.appendChild(autoOpt);
+  for (const key of Object.keys(registry)) {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = registry[key].name;
+    sel.appendChild(opt);
+  }
+  sel.value = manualCityOverride || 'auto';
+
+  if (pendingCityDetectionFix) {
+    // A GPS/offline fix arrived before cities.json finished loading --
+    // replay it now that geofencing is actually possible.
+    const fix = pendingCityDetectionFix;
+    pendingCityDetectionFix = null;
+    applyLocationFix(fix.loc, fix.opts);
+  } else {
+    // No real location fix has come in yet (slow permission prompt, GPS
+    // still resolving, etc). Chennai is shown purely as a starting map
+    // view here -- it is NOT reported as the user's detected city.
+    loadCityData('chennai', { source: 'default' });
+  }
+}).catch(err => {
+  console.error('Failed to load city registry:', err);
+  showErrorBanner(`Could not load frontend_data/cities.json: ${err.message}`);
+});
+
+document.getElementById('city-select').addEventListener('change', (e) => {
+  const val = e.target.value;
+  if (val === 'auto') {
+    manualCityOverride = null;
+    const start = getRouteStartLocation();
+    const detected = start ? detectCityFromCoords(start.lat, start.lon) : null;
+    updateCityDetectionBadge(detected, null);
+    if (detected && detected !== activeCityKey) {
+      loadCityData(detected, { source: 'auto' });
+    } else if (!detected && start) {
+      setLocationStatus('⚠ Your current location is outside the supported cities.', 'error');
+    }
+  } else {
+    // Manual testing override: changes which city's dataset is loaded,
+    // but loadCityData() always re-resolves the marker from the REAL
+    // GPS/saved coordinates -- it never moves the marker to the
+    // manually selected city.
+    manualCityOverride = val;
+    updateCityDetectionBadge(null, val);
+    const start = getRouteStartLocation();
+    const detected = start ? detectCityFromCoords(start.lat, start.lon) : null;
+    if (start && !detected) {
+      setLocationStatus(`⚠ Your real location is outside every supported city's boundary — showing it on the manually selected ${cityRegistry[val].name} dataset (testing mode only).`, 'info');
+    }
+    if (val !== activeCityKey) loadCityData(val, { source: 'manual' });
+  }
+});
+
+// ---------------------------------------------------------------------
+// Heatmap toggle
+// ---------------------------------------------------------------------
+document.getElementById('toggle-heatmap').addEventListener('change', (e) => {
+  if (!heatmapLayer) return;
+  if (e.target.checked) heatmapLayer.addTo(map);
+  else map.removeLayer(heatmapLayer);
+});
+
+// ---------------------------------------------------------------------
+// Risk compass: click the map to set current location + see live score
+// ---------------------------------------------------------------------
+const compassEl = document.getElementById('risk-compass');
+const ringEl = document.getElementById('compass-ring');
+
+map.on('click', (e) => {
+  if (!graph) return;
+  const { lat, lng } = e.latlng;
+  // Tapping the map is now a read-only "what's the safety score here?"
+  // inspector -- it shows the risk compass for that point but does NOT
+  // move the location marker and does NOT change the route's starting
+  // point. The route starting point comes ONLY from the selected
+  // Online/Offline mode (see getRouteStartLocation()), so the marker
+  // shown for routing and the coordinates the route actually starts
+  // from can never disagree.
+  const nearest = nearestNode(lat, lng);
+
+  const point = map.latLngToContainerPoint(e.latlng);
+  compassEl.style.left = point.x + 'px';
+  compassEl.style.top = point.y + 'px';
+  ringEl.style.setProperty('--score', nearest.safety_score);
+  ringEl.style.setProperty('--ring-color', scoreToColor(nearest.safety_score));
+  ringEl.setAttribute('data-score', Math.round(nearest.safety_score));
+  compassEl.style.display = 'block';
+  requestAnimationFrame(() => compassEl.classList.add('visible'));
+});
+
+map.on('movestart zoomstart', () => {
+  compassEl.classList.remove('visible');
+});
+
+// ---------------------------------------------------------------------
+// Routing
+// ---------------------------------------------------------------------
+function clearRoutes() {
+  if (safeRouteLayer) { map.removeLayer(safeRouteLayer); safeRouteLayer = null; }
+  if (shortRouteLayer) { map.removeLayer(shortRouteLayer); shortRouteLayer = null; }
+  if (destinationMarker) { map.removeLayer(destinationMarker); destinationMarker = null; }
+  document.getElementById('route-stats-block').style.display = 'none';
+}
+
+function findNearestDestination(features) {
+  const startNode = nodeById.get(nearestStartNodeId);
+  let best = null, bestDist = Infinity;
+  for (const f of features) {
+    const [lon, lat] = f.geometry.coordinates;
+    const d = haversineKm(startNode.lat, startNode.lon, lat, lon);
+    if (d < bestDist) { bestDist = d; best = f; }
+  }
+  return best;
+}
+
+function pathToLatLngs(path) {
+  return path.map(id => { const n = nodeById.get(id); return [n.lat, n.lon]; });
+}
+
+function routeStats(path) {
+  const scores = path.map(id => nodeById.get(id).safety_score);
+  const avg = scores.reduce((a,b) => a+b, 0) / scores.length;
+  const min = Math.min(...scores);
+  // sum the REAL length (meters) of each street segment actually used,
+  // by looking up the matching edge for each consecutive pair of nodes
+  // in the path -- accurate now that graph.json is built from real
+  // streets (Phase 5 + 20_export_real_road_graph.py), not a uniform grid
+  let totalMeters = 0;
+  for (let i = 0; i < path.length - 1; i++) {
+    const u = path[i], v = path[i + 1];
+    const edge = adjacency.get(u).find(e => e[0] === v);
+    if (edge) totalMeters += edge[2];  // edge = [neighborId, safetyWeight, physicalDist]
+  }
+  return { avg: avg.toFixed(1), min: min.toFixed(1), km: (totalMeters / 1000).toFixed(2) };
+}
+
+function runRoute(destinationType) {
+  if (!graph || nearestStartNodeId === null) {
+    alert(noRouteStartMessage());
+    return;
+  }
+  const features = destinationType === 'police' ? policeFeatures : hospitalFeatures;
+  const destFeature = findNearestDestination(features);
+  const [destLon, destLat] = destFeature.geometry.coordinates;
+  const destNode = nearestNode(destLat, destLon);
+
+  const safeResult = dijkstra(nearestStartNodeId, destNode.id, 1);
+  const shortResult = dijkstra(nearestStartNodeId, destNode.id, 2);
+
+  clearRoutes();
+
+  destinationMarker = L.marker([destLat, destLon]).addTo(map)
+    .bindPopup(`Destination: nearest ${destinationType}`).openPopup();
+
+  if (!safeResult && !shortResult) {
+    // Real street networks can have disconnected pieces (unlike the old
+    // fully-connected grid graph) -- e.g. the nearest destination might
+    // sit just outside the downloaded road network's connected area.
+    // Fail gracefully instead of silently showing nothing.
+    alert(`No street-connected route found to this ${destinationType}. ` +
+      `Your location may be just outside the loaded road network's coverage ` +
+      `area for this city. Try a different destination, or confirm the ` +
+      `correct city is loaded (see the City panel).`);
+    return;
+  }
+
+  if (shortResult) {
+    shortRouteLayer = L.polyline(pathToLatLngs(shortResult.path), {
+      color: '#8792A8', weight: 3, dashArray: '6 6', opacity: 0.85,
+    }).addTo(map);
+  }
+  if (safeResult) {
+    safeRouteLayer = L.polyline(pathToLatLngs(safeResult.path), {
+      color: '#8B7CF6', weight: 4.5, opacity: 0.95,
+    }).addTo(map);
+    map.fitBounds(safeRouteLayer.getBounds(), { padding: [60, 60] });
+  }
+
+  if (safeResult && shortResult) {
+    const safeStats = routeStats(safeResult.path);
+    const shortStats = routeStats(shortResult.path);
+    document.getElementById('safe-dist').textContent = `~${safeStats.km} km`;
+    document.getElementById('safe-score').textContent = `avg ${safeStats.avg}`;
+    document.getElementById('short-dist').textContent = `~${shortStats.km} km`;
+    document.getElementById('short-score').textContent = `avg ${shortStats.avg}`;
+    document.getElementById('route-stats-block').style.display = 'block';
+  }
+
+  return { destFeature, safeResult, shortResult };
+}
+
+document.getElementById('btn-police').addEventListener('click', () => runRoute('police'));
+document.getElementById('btn-hospital').addEventListener('click', () => runRoute('hospital'));
+document.getElementById('btn-reset').addEventListener('click', clearRoutes);
+
+// ---------------------------------------------------------------------
+// SOS flow
+// ---------------------------------------------------------------------
+const sosOverlay = document.getElementById('sos-overlay');
+// Show the Log out link only if the phase7 backend is serving this page.
+fetch('/api/me', { cache: 'no-store' })
+  .then(r => (r.ok ? r.json() : null))
+  .then(me => { if (me && me.ok) document.getElementById('logout-link').style.display = 'inline-block'; })
+  .catch(() => {});
+
+document.getElementById('sos-btn').addEventListener('click', async () => {
+  sosOverlay.classList.add('visible');
+  const sosText = document.getElementById('sos-text');
+  const sosDetails = document.getElementById('sos-details');
+
+  const start = getRouteStartLocation();   // the user's REAL location (GPS or last recorded), not a snapped graph node
+  if (!graph || nearestStartNodeId === null || !start) {
+    sosText.textContent = noRouteStartMessage();
+    sosDetails.innerHTML = '';
+    return;
+  }
+
+  runRoute('police');
+  const startNode = nodeById.get(nearestStartNodeId);
+  sosText.textContent = 'Sending your alert to your emergency contacts…';
+  sosDetails.innerHTML = `
+    <div class="detail-line">YOUR LOCATION: ${start.lat.toFixed(5)}, ${start.lon.toFixed(5)}</div>
+    <div class="detail-line">LOCAL SAFETY SCORE: ${startNode.safety_score}</div>
+  `;
+
+  // Ask the backend to alert the emergency contacts saved at registration.
+  let outcome;
+  try {
+    const res = await fetch('/api/sos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ latitude: start.lat, longitude: start.lon }),
+      cache: 'no-store',
+    });
+    outcome = await res.json();
+    if (res.status === 401) outcome = { ok: false, errors: ['You are not logged in, so no alert could be sent to your emergency contacts.'] };
+  } catch (e) {
+    outcome = { ok: false, errors: ['Could not reach the server, so no alert could be sent. The safest route to the nearest police station is still shown on the map.'] };
+  }
+
+  // Email status line (emails go out immediately, alongside any SMS attempt).
+  let emailLine = '';
+  if (outcome.ok) {
+    if (outcome.emails_sent > 0) {
+      emailLine = ` Email alert with your location sent to ${outcome.emails_sent} of ${outcome.emails_total} emergency email addresses.`;
+    } else {
+      emailLine = ' NO email was delivered: ' + (outcome.email_note || 'unknown reason') + '.';
+    }
+  }
+
+  if (outcome.ok && outcome.sent > 0) {
+    sosText.textContent = `SMS with your location sent to ${outcome.sent} of ${outcome.total} emergency contacts.` + emailLine + ' Safest route to the nearest police station is shown on the map.';
+  } else if (outcome.ok) {
+    sosText.textContent = 'No SMS was delivered: ' + outcome.note + '.' + emailLine + ' Safest route to the nearest police station is shown on the map.';
+  } else {
+    sosText.textContent = (outcome.errors || ['Alert could not be sent.']).join(' ');
+  }
+
+  // Manual fallback: if the automatic SMS didn't reach everyone, give
+  // one-tap links that open the user's OWN WhatsApp / SMS app with the
+  // alert and her location already filled in -- she only has to press Send.
+  if (outcome.ok && outcome.message && outcome.contacts && outcome.sent < outcome.total) {
+    const body = encodeURIComponent(outcome.message);
+    const btn = 'display:inline-block;margin:4px 6px 0 0;padding:6px 10px;border-radius:8px;border:1px solid var(--panel-border);background:#1B2740;color:var(--ink);font-size:12px;text-decoration:none;';
+    const rows = outcome.contacts.map((n, i) => `
+      <div class="detail-line" style="margin-top:8px;">Contact ${i + 1} (${n}):<br>
+        <a style="${btn}" href="https://wa.me/91${n}?text=${body}" target="_blank" rel="noopener">Send via WhatsApp</a>
+        <a style="${btn}" href="sms:+91${n}?body=${body}">Send via SMS</a>
+      </div>`).join('');
+    sosDetails.innerHTML += `<div class="detail-line" style="margin-top:12px;">SEND IT YOURSELF — tap each, then press Send:</div>${rows}`;
+  }
+});
+document.getElementById('sos-close').addEventListener('click', () => {
+  sosOverlay.classList.remove('visible');
+});
+</script>
+</body>
+</html>

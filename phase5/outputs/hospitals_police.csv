@@ -1,0 +1,887 @@
+amenity,name,lat,lon
+hospital,Kalaignar Karunanidhi Nagar,13.038649299999996,80.2052158
+hospital,Kasimedu,13.122774999999995,80.2960584
+police,Mambalam Police Station,13.034957299999995,80.22946
+hospital,Amrit Hospital,13.092200700000001,80.27929120000002
+hospital,Vikram Hospital,13.098500700000002,80.2796178
+police,Royapettah PS,13.0520106,80.2637348
+hospital,City Tower Hospitals,13.084379999999998,80.2160862
+police,,13.059617299999998,80.2427681
+hospital,"Apollo Hospitals, Tondiarpet",13.128936699999999,80.2905623
+hospital,K.H.M. Hospital,13.084499199999998,80.2130591
+hospital,Sundaram Medical Foundation,13.082169999999998,80.2069819
+hospital,Sri Devi Speciality Hospial,13.088798299999997,80.1994692
+police,S-8 Adambakkam Police Station,12.989395699999998,80.2019683
+police,Teynampet E3 PS,13.048650999999998,80.2494881
+hospital,Corporation Hospital,13.0336624,80.2572467
+hospital,"Hindu Mission Health Services, Kanchipuram",12.9787682,80.18464710000002
+hospital,Military Hospital,13.019462199999998,80.1972947
+hospital,"Tamil Nadu Government Dental College & Hospital, Chennai",13.084889,80.2826483
+hospital,Kilpauk Medical College,13.078598399999999,80.2433369
+hospital,Hariharan Hospital,12.984714499999999,80.1905906
+hospital,BM Hospital,12.988761599999997,80.1904116
+hospital,K.F. Hospital,12.973463,80.1841397
+hospital,Cancer Institute,13.006133799999999,80.239884
+police,Adyar J2,12.997814,80.2557176
+hospital,Sri Ramachandra Medical Centre and Hospital,13.0380979,80.1428047
+police,,12.9814685,80.192063
+hospital,Govt Maternity Hospital,13.072099599999994,80.2589871
+hospital,Institute of Child Health,13.073549600000002,80.257025
+hospital,Institute of Obstetrics and Gynaecology dd,13.0735431,80.2591463
+police,Central Station PS,13.081827600000002,80.2755071
+police,Chennai Central RPF,13.0830613,80.2732996
+police,B1 Saint Thomas Mount PS,12.9991212,80.200262
+hospital,MIOT International,13.021180799999996,80.1858412
+police,Koyambedu Police Station,13.069640699999999,80.2004587
+hospital,St. Thomas Hospital,13.012273299999999,80.196428
+police,"Office, Police Commissioner",13.010086499999998,80.1990931
+hospital,,13.009781,80.1949734
+police,T15 SRMC PS,13.034199300000001,80.1602489
+hospital,Venkataeswara Hospitals,13.029362400000002,80.2440921
+police,KK Nagar PS,13.0415108,80.20544150000002
+police,N4 PS,13.134540799999998,80.2974596
+police,Virugambakkam Police Station,13.049112299999999,80.1992562
+police,,13.03694,80.2674177
+hospital,Sarswathi Hospital,12.9653846,80.2067733
+hospital,Apollo Clinic & Pharmacy,13.052439999999999,80.2041657
+hospital,Vijaya Heart Centre,13.0483819,80.2070144
+hospital,B.M.Orthopaedic Hospital,13.118110399999999,80.1499411
+hospital,skandan nursing home,12.944793800000001,80.1405596
+hospital,"Vasan Eye Care Hospital, Vadapalani",13.0495316,80.211027
+hospital,JJ Hospital,13.0571293,80.1942138
+police,Police Booth,13.073748400000001,80.1923421
+police,Police Booth,13.065690699999998,80.1935705
+police,Velachery,12.9850126,80.2208713
+police,Police Booth,13.044732199999999,80.1862162
+hospital,Appasamy Hospital,13.0750445,80.2151198
+hospital,Appasamy Hospital,13.073239000000001,80.2148826
+hospital,Appolo Clinic,13.089207299999998,80.2178866
+police,Chintadripet,13.0749088,80.2725042
+police,Vadapalani Police station,13.049672999999999,80.2117315
+police,Ramapuram Police Station,13.031773700000004,80.1790069
+hospital,Srm Speciality Hospital,13.0331325,80.1810857
+hospital,SRM Dental Hospital,13.0321291,80.1801201
+hospital,Aakash Fertility Centre & Hospital,13.0554597,80.2118365
+hospital,Rajan Eye Care Hospital,13.0508335,80.2434416
+police,Police booth,12.9651635,80.2060352
+hospital,sree dhanalakshmi family clinic,13.058304600000003,80.211745
+police,,13.124493200000002,80.2771688
+hospital,Bhadra Homeo,12.966387900000003,80.2474724
+police,Porur Police Station,13.0343074,80.1601292
+hospital,Amma Hospital,13.062604499999999,80.2305209
+hospital,Right Hospitals,13.078795200000002,80.2405731
+hospital,Vasan Eye Care Hospital,13.0015307,80.2552541
+hospital,,13.0584072,80.20117380000002
+police,,13.057685500000002,80.2041548
+hospital,Ashwini Eye Care,13.118708299999998,80.1572422
+police,Shastri Nagar Police Station,13.0006116,80.2659307
+hospital,Prime Care Nursing Home,12.979919199999996,80.2044922
+police,Police Outpost,13.215617299999996,80.1694388
+hospital,Apollo Free Emergency Clinic,13.067723299999999,80.2050055
+police,K11 CMBT Police Station,13.068701200000001,80.2046669
+hospital,Agarwal Hospital,13.038565599999997,80.21658450000001
+hospital,Senthil Nursing Home,13.084967099999998,80.2004752
+hospital,I K Hospital,13.0868667,80.19916610000001
+hospital,B.P. Jain Hospital (Sri Sankara Health Centre),12.9730642,80.1339663
+hospital,Ortho clinic,12.980045599999997,80.2286587
+police,J9 Police Station,12.947613000000004,80.2416251
+hospital,JK Hospital,13.035856400000002,80.1644897
+police,Madipalkam police stations,12.955985799999999,80.1853072
+hospital,,12.955940899999998,80.1855637
+hospital,SP Hospital,12.993363800000001,80.20091340000002
+hospital,Fourtts India Laboratories,12.932168399999998,80.2337388
+hospital,Rotary Central Margaret Sidney Hospital,12.983795800000001,80.1932105
+police,,13.0229741,80.1999165
+hospital,Sri Chakra Hospital,12.978652400000001,80.1850278
+police,Police Booth,12.897566199999996,80.1823209
+hospital,Rajan Hospital,12.892849599999998,80.1835976
+police,Police Assistance Booth Mugalivakam,13.020716200000003,80.1663239
+hospital,Dr. Janardhanan Multispeciality Dental Clinic,12.984258599999997,80.1886083
+hospital,Dr Venugopals' Sundaram Clini,13.076782,80.268345
+hospital,Dr Kabir's Clinic,13.0768734,80.2678381
+hospital,Dr Sridhars'Clinic,13.076434500000001,80.2672427
+hospital,Vepery Hospital,13.092181199999997,80.2594411
+hospital,Vasan Eye care,12.965800199999999,80.191882
+hospital,Jaws Dental Foundation,13.092966699999998,80.2236256
+police,J6 Police Station,12.987459899999996,80.2559315
+hospital,Chennai Skin Foundation,13.0205681,80.2594702
+hospital,Sukrthi Nursing Home,12.971028699999998,80.2082964
+hospital,A.N.N Hospital,13.040594100000002,80.1784622
+hospital,Appolo Speciality Hospital Vanagram,13.070504200000004,80.150612
+police,S-10 Police Station (Pallikaranai),12.9173825,80.1950805
+hospital,Kauvery Hospital,13.038170499999998,80.2573008
+police,Chetpet,13.070690699999998,80.2421194
+hospital,Velachery SABA Hospital,12.986273499999998,80.2298924
+hospital,Chellam Hospital,12.9012946,80.1583761
+hospital,Kaya Skin clinic,12.9767775,80.2223505
+hospital,Madras Medical Mission Hospital - Institute of Cardio Vascular Diseases,13.085996099999994,80.1870589
+hospital,Pavithra Hospital,13.126090699999999,80.24884060000001
+hospital,Shankara Netralaya Eye Hospital,13.0642564,80.2497746
+police,R6 KUMARAN NAGAR POLICE STATION ,13.0283677,80.2163105
+hospital,Srinivasan Rajalakshmi Memorial Hospital,12.9733792,80.187599
+hospital,,13.026488999999998,80.1829882
+police,Otteri Police Station,13.087452299999997,80.2458786
+police,J.J Nagar Police Booth (V3),13.087695199999997,80.1878894
+police,Thalambur Police Station,12.846900599999998,80.2271771
+hospital,Chennai Medical Centre Hospital,13.038004699999998,80.1889685
+hospital,SRM Institutes For Medical Science,13.0515961,80.2114304
+hospital,HEALTH,13.013599899999999,80.2395364
+hospital,,13.113302100000002,80.2905249
+police,Police Assistance Booth,13.069926299999999,80.2714181
+hospital,Sugam homeopathic hospital,12.923098899999998,80.130824
+hospital,Dr. KK eye care center,12.922065700000001,80.1381329
+hospital,Be Well Hospital,12.922010200000003,80.1417788
+hospital,Chellam Super Speciality Center,12.923785099999998,80.1589529
+hospital,New Life Hospital,12.9225168,80.1522357
+police,J-10 Semmenchery Police Station,12.900855799999997,80.2280156
+hospital,Government Health Center,12.885561999999998,80.151595
+hospital,Annai Therasa Hospital,12.891740699999996,80.1412614
+hospital,Government Veterinary Hospital,12.8855161,80.1522823
+hospital,,12.920746699999999,80.1437903
+hospital,,12.920113299999997,80.1443788
+hospital,,13.1131363,80.2429369
+hospital,Kottakkal Arya Vaidhyasala,12.9203722,80.1443905
+hospital,Marhura hospital,12.836928400000001,80.2275731
+hospital,The Cresent Hospital,13.0527235,80.2727336
+police,Police Booth,13.0149758,80.1816427
+hospital,Biocosmo Healthcare,13.0590329,80.2375326
+hospital,VSR Hospital,13.079968199999996,80.1805593
+hospital,New Life Family Hospitals,13.080047799999997,80.1804976
+hospital,Vijaya Group of Hospital,13.0497391,80.2083222
+hospital,ஹிபா சிறப்பு மருத்துவமனை,13.0615207,80.275747
+hospital,ARK Hospital,12.985699899999997,80.2293536
+hospital,Annamalai Hospital,13.031146999999997,80.2228983
+hospital,Ezhil Hospital,13.0319539,80.2207913
+hospital,"Qure Ortho Clinic, Physiotherapy, X Ray & Pharmacy",12.979399999999998,80.2043658
+hospital,Nivas Skin Clinic,13.028966299999999,80.2085951
+police,Railway Police,13.034136699999998,80.2664405
+police,,12.9931857,80.2674928
+hospital,Apollo Cancer Centres,13.0337515,80.2451004
+hospital,Raju Hospitals,13.032988799999996,80.230346
+hospital,Rakshith Hospitals,13.042307,80.177473
+hospital,Dr. A. L. Annamalais Ent Care Centre,12.943962199999998,80.1388438
+hospital,Sri Kalyan Hospital,13.0063976,80.2507134
+hospital,A G Chrompet Health And Maternity Centre,12.9504411,80.1438314
+hospital,Sen Hospital,13.1105649,80.2418775
+hospital,Billroth Hospitals,13.0757435,80.2272588
+hospital,Cauvery Trust Hospital,13.1026603,80.2112943
+hospital,Kedar Hospital,13.022909799999997,80.1670808
+hospital,Srinivas Eye Hospital,13.0829726,80.1796965
+hospital,Soundarapandian Bone and Joint Hospital Research Institute Pvt. Ltd.,13.0838202,80.2156412
+hospital,Dr. U. Mohan Rau Memorial Hospital - Chennai,13.079493999999999,80.25728080000002
+hospital,Chennai Cancer Care,13.076293500000002,80.234026
+hospital,Chennai Eye Care Hospital,12.9789449,80.2246302
+hospital,Chennai Heart Centre,13.091793900000003,80.2410534
+hospital,Chennai Kaliappa Hospital,13.026849199999997,80.2558082
+hospital,Mots Hospital,13.0833606,80.2341561
+hospital,Vasanthi Orthopaedic Hospital,13.072358799999998,80.2157642
+hospital,R.K. Gynaec And Maternity Hospital,13.078812699999999,80.2481786
+hospital,R.G. Stone Urological Research Institute,13.024079199999996,80.2278288
+hospital,R. K. Eye Centre,13.048591199999997,80.2311788
+hospital,Psymed Hospiyal,13.071475699999999,80.2317998
+hospital,Vanaja Hospital,13.1990395,80.1760313
+hospital,"Vasanthram Hospital (P) Ltd.,",13.043309100000002,80.2187696
+hospital,Vadapalani Multispeciality Hospital,13.051655900000002,80.2133146
+hospital,Sri Ramachandra Hospital,13.037871300000003,80.14020230000001
+hospital,"M N Eye Hospital Private Limited, Tondiarpet",13.123230600000001,80.2876528
+hospital,Doctor Rexs Hospitals,13.083881200000002,80.2502386
+hospital,Helios Hospital Pvt Ltd,12.9855882,80.2189144
+hospital,Deepam Muthu Hospital,13.099585499999998,80.2605303
+hospital,LK Hospitals,12.9701347,80.1480083
+hospital,Devibala Maternity,12.971439,80.1378152
+hospital,Malligai Hospital,13.123876500000001,80.2899749
+hospital,Huma Specialists Hospital and Research Centre Pvt Ltd,13.0282655,80.235353
+hospital,Divya Hospital,12.964439199999997,80.187601
+hospital,Noor`S Hospital,13.141844199999998,80.2485046
+hospital,"Vasan Eye Care Hospital, Perambur",13.1177888,80.2287099
+hospital,Sri Sai Krs Hospital,13.037975699999999,80.21629840000001
+hospital,"Gowri Nursing Home, Kanchipuram",12.977971299999998,80.1883923
+hospital,Satish Eye Hospital,13.0813959,80.2469972
+hospital,"A.K. Hospital, Chennai",13.074144199999996,80.220515
+hospital,Ammayi Eye Hospital,13.0331935,80.2159045
+hospital,K.M. Speciality Hospital,13.037967100000001,80.2013517
+hospital,Subha Hospital,13.1113868,80.2923493
+hospital,I Care Eye Care Eye Institute,12.943659,80.1437791
+hospital,Radhatri Nethralaya,13.0339283,80.2394965
+hospital,"S M Hospital, Chennai",13.0400969,80.2044211
+hospital,Cu Shah Sankara Netralaya,13.001268699999999,80.2001283
+hospital,Aashiana Hospital,13.0924039,80.20901840000002
+hospital,"Ayesha Hospital, Kilpauk",13.084700899999998,80.2498054
+hospital,Frontline Eye Hospital,13.0323531,80.2517212
+hospital,Fousiya Hospital,13.0477722,80.2744473
+hospital,Hande Hospital,13.076465299999999,80.2274586
+hospital,Dr Gurusekaran Hospital Pvt Ltd,13.0374924,80.2381137
+hospital,Grace Multipeciality Hospital,12.9569773,80.1867561
+hospital,G. R. Hospital & Fertility Centre,12.9952982,80.2068955
+hospital,G K M Hospital Pvt Ltd,13.0899919,80.2585199
+hospital,Starlight Hospitals Pvt Ltd,12.986452599999998,80.2601581
+hospital,Kaliappa Renal Center,13.027461600000002,80.2566481
+hospital,K P Childrens Hospital And Neuro Centre,12.991117899999999,80.1986745
+hospital,Ayur Kshetra ( A Unit Of Institute Of Ayurvedic Research Pvt Ltd),13.076081200000003,80.2107431
+hospital,Krishna Eye And Ent Hospitals,13.034398500000002,80.2339764
+hospital,Vishnu Eye Clinic and Laser Foundation,13.0842894,80.2230605
+hospital,"Santhigiri Ayurveda and Siddha Hospital, Chennai",13.047687099999996,80.2646568
+hospital,Vijaya Heart Foundation - Vijaya Hospital,13.054728999999998,80.2110462
+hospital,Santosh Hospital Pvt Ltd,12.995229000000002,80.2691898
+hospital,"Dr.Agarwal's Eye Hospital Ltd., Anna Nagar",13.0847414,80.2219681
+hospital,Athipathi Hospital and Research Centre,12.976271099999996,80.2222002
+hospital,Girishwari Hospital Pvt Ltd,13.0349787,80.2519137
+hospital,Sri Kumaran Multi Speciality Hospital,13.115289500000003,80.2923614
+hospital,Dr. Arvind Vision Care,13.084012400000002,80.16918090000001
+hospital,Dr. K Ravi Eye Care,13.040701299999997,80.2618016
+hospital,"SKS Hospital, Chennai",13.0896987,80.1877418
+hospital,Dr. K.K. Surgical and Paediatric Centre Pvt Ltd,12.9220372,80.1382443
+hospital,Madras Ent Research Foundation,13.026868800000004,80.2541439
+hospital,Dr. Mohans Mv Diabetes Specialities Centre - Chennai,13.0541946,80.25767100000002
+hospital,Chettinad Super Speciality Hospital,12.910940599999998,80.22821100000002
+hospital,Dr.Bhats Eye Hospital,13.118520399999996,80.1523131
+hospital,Lifeline Rigid Hospital,13.078020400000002,80.2336988
+hospital,Dr. Seshiah Diabetes Research Institute and Dr. Balaji Diabetes Care Centre,13.0748591,80.2299839
+hospital,Dr.Kamakshi Memorial Hospital,13.002218699999997,80.2520867
+hospital,Dr.Duraiswami Eye Hospital,13.034050999999998,80.2279374
+hospital,Dr.Agarwals Eye Hospital,12.983268099999998,80.2176077
+hospital,"Dr.Agarwal's Eye Hospital Ltd, Nanganallur",12.982784400000003,80.1891661
+hospital,Dr. Udhaya Rajas Dental Centre,13.046549199999998,80.2422899
+hospital,Dhanvantari Eye Care,13.0973284,80.1942193
+hospital,Sri Bala Nursing Home,13.118311899999998,80.2318051
+hospital,"Anand Hospital, Chennai",13.163834599999996,80.2581659
+hospital,Lakshmi Hospital,13.0314888,80.2218689
+hospital,நந்தினி மருத்துவமனை,12.9327959,80.2315475
+hospital,B.M. Silver Jubilee Multi Speciality Hospital,12.9646856,80.1522294
+hospital,Bharathirajaa Hospital and Research centre,13.048098100000002,80.245015
+hospital,Bethany Health Care Centre,13.0699812,80.2444142
+hospital,Bethesda Hospital and Child Care Centre,12.9217796,80.1450997
+hospital,Bhagwan Mahaveer Eye Hospital,13.110508400000002,80.2917197
+hospital,Bharath Hospital,12.982327699999997,80.1937835
+hospital,Trinity Acute Care Hospital - Chennai,13.038260699999999,80.2582785
+hospital,Balakrishna Eye Hospital,13.027443599999996,80.2269866
+hospital,Dr Rabindran's Health Care Center,13.1190773,80.1504859
+hospital,B.S.S. Hospital,13.026012999999999,80.2655232
+hospital,B.S. Hospital,12.934322699999997,80.1384374
+hospital,B.R.S. Hospital Pvt. Ltd.,13.051944199999998,80.2454831
+hospital,Harvey Healthcare Limited,13.037303,80.25581360000001
+hospital,Chitra's Ent Laser Hospital,13.051824699999996,80.24764830000001
+hospital,Kottakkal Arya Vaidya Sala,13.0395483,80.2313016
+hospital,"Rohit Hospital, Tiruvallur",13.151228799999998,80.2998984
+hospital,Je Nesam Hospital,13.0405732,80.2146873
+hospital,Chennai Meenakshi Multispeciality Hospital Ltd,13.037619799999998,80.2619625
+hospital,Chennai Skin Foundation and Yesudian Research Institute,13.021039399999994,80.2592924
+hospital,Dr.Mu.Va.Hospital,13.074332700000001,80.228278
+hospital,Cholayil Sanjeevanam Ayurveda,13.084452699999998,80.17986420000001
+hospital,"Vandana Hospital, Tiruvallur",13.1456863,80.2927141
+hospital,Mysaan Hospital,13.064132599999999,80.2705644
+hospital,V H M Hospitals Pvt Ltd,13.046289199999999,80.1979979
+hospital,Robin and Robin Health Care,13.0807741,80.19890250000002
+hospital,West Madras Medical Centre,13.085049599999998,80.215956
+hospital,"Kauvery Hospital, Chennai",13.039056400000002,80.2568208
+hospital,Rathi Med Speciality Hospital,13.0916495,80.2179844
+hospital,Santhi Hospital,12.950783500000002,80.255186
+hospital,Sunder Eye Hospital,13.08497,80.21597210000002
+hospital,Laksha Hospital,13.0435469,80.2636349
+hospital,"Lake View Hospital, Tiruvallur",13.136821300000001,80.2087516
+hospital,Narayanaa Hospital,13.089377299999999,80.2547595
+hospital,Janamma Hospital,13.026945699999999,80.2623196
+hospital,"Noble Hospital, Chennai",13.082153600000002,80.253244
+hospital,"J.K. Hospital, Chennai",13.135451300000001,80.2934799
+hospital,Indira Eye Hospital,13.022205499999998,80.2622388
+hospital,Indian Hospitals,13.0766658,80.2057502
+hospital,Diabetes Research Centre and M.V.Hospital For Diabetes,13.111945799999997,80.2952072
+hospital,"Vasan Eye Care Hospital, Neelankarai",12.9504267,80.2551001
+hospital,Apollo First Medical Foundation,13.0776912,80.2459216
+hospital,Josephs Nursing Home,13.073940799999999,80.2357346
+hospital,Jip Diabetic and Heart Care Centre,12.954832499999998,80.141636
+hospital,Jayam Polyclinc,12.995856199999999,80.2603345
+hospital,Jayadev Polyclinic Hospital,13.077854499999999,80.2415295
+hospital,Kummaran Eye Speciality Centre,13.060034900000002,80.2302911
+hospital,Kvt Health Centre,13.128230300000002,80.2421558
+hospital,Ezhil Hospital,13.130225899999997,80.2916855
+hospital,Premier Health Center,13.084248899999999,80.22085100000001
+hospital,Vasantha Subramanian Hospitals Pvt Ltd,13.0731975,80.2527237
+hospital,"Vasan Eye Care Hospital, Tondiarpet",13.110900899999997,80.2812195
+hospital,Madras Poly Clinic and R.R. Scan,13.046106300000002,80.2220044
+hospital,"Vasan Eye Care Hospital, Valasaravakkam",13.041106299999997,80.1747546
+hospital,Life Medhospital,13.053550499999998,80.25769110000002
+hospital,"K.M. Hospitals, Chennai",13.0884107,80.2421169
+hospital,Zubeda Hospitals Ltd.,13.074195499999998,80.2357775
+hospital,RR Multispeciality Hospital,13.058474500000003,80.2740124
+hospital,Dr.Manju Kulkarni Hospital,13.074383599999997,80.2367672
+hospital,S.V. Bone And Joint Hospital,13.047323899999999,80.2241461
+hospital,Sri G.M. Hospital,12.965226599999996,80.1927643
+hospital,Sri Eshodha Hospital,13.0981213,80.2362643
+hospital,Srichakara Multispeciality Hospital,12.97853,80.1851381
+hospital,Abhijay Hospital,13.116017699999999,80.2328438
+hospital,Arvind Sai Eye Hospital,12.9731392,80.1371252
+hospital,"Sinus And Nose Hospital - Mylapore, Chennai",13.035062299999998,80.2778479
+hospital,Sindu Hospital,12.920658199999998,80.1434009
+hospital,Sibi Hospital,12.969791700000002,80.1904562
+hospital,Sri Venkateshwara`s C.M. Hospital,12.985791399999998,80.185987
+hospital,Srinivas Priya Hospital (P) Ltd,13.110046699999998,80.2466847
+hospital,Anjakha Hospital,12.9637407,80.1880047
+hospital,M.S.M. Skin and Hair Care Clinic,12.952144099999996,80.14381260000002
+hospital,"M.R. Hospital, Chennai",13.072527899999999,80.2195783
+hospital,M. N. Orthopaedic Hospital,13.081032799999996,80.2336653
+hospital,M V Hospital For Diabetes Pvt Ltd,13.1121574,80.2956927
+hospital,M N Eye Hospital,12.996767,80.2603599
+hospital,"A.V. Hospital, Chennai",13.117080199999998,80.28641890000002
+hospital,N.R. Hospital,13.112216199999999,80.2309737
+hospital,N.R. Medical Home Private Limited,13.0965878,80.2597135
+hospital,Nagamani Hospitals Private Limited,13.117412,80.289427
+hospital,Nalamm Hospital Pvt Ltd,13.1184216,80.2610184
+hospital,Nandalala Medical Foundation,13.032851599999999,80.2615173
+hospital,Sri Kumaran Health Centre,13.130890699999998,80.2138799
+hospital,Nandhini Hospital,12.9784706,80.22479320000001
+hospital,Navasuja Sankara Nethralaya,13.026510800000002,80.2607878
+hospital,Neomed Hospital - Chennai,13.083451999999996,80.2030747
+hospital,"New Balaji Hospital, Chennai",13.0316469,80.2311185
+hospital,New Hope Indian Specilaity Hospital,13.077757899999998,80.2414826
+hospital,New Hope Medical Centre Pvt. Ltd,13.077682099999999,80.2415201
+hospital,Nichani Health Centre,13.111251,80.2940284
+hospital,Om Shakthi Hospital,13.1184222,80.1507749
+hospital,Orthopedic and Specialities Hospital,13.039056400000002,80.2086724
+hospital,Padmapriya Hospital Pvt. Ltd.,12.999622299999999,80.2537027
+hospital,Palani Balaji Fertility Centre,13.012212299999996,80.2235084
+hospital,Pallava Hospital,13.042039099999998,80.21260050000001
+hospital,Pankajam Memorial Hospital,12.9801472,80.1835965
+hospital,Apollo Childrens Hospital,13.060130999999997,80.2523656
+hospital,Anuradha Maternity Centre,13.0356881,80.2337551
+hospital,Shri Balaji Hospital - Chennai,13.091970899999998,80.2511633
+hospital,Tamil Nadu Urological Research Centre,13.071034100000004,80.222632
+hospital,Sss Hospital,13.157772699999999,80.3018933
+hospital,Thirimoorthys Heart Care Hospital,12.967334700000002,80.1867983
+hospital,"Thulasi Krishna Nursing Home, Kodambakkam",13.0517176,80.2300054
+hospital,"Sugam Hospital, Tiruvallur",13.1652175,80.3032967
+hospital,Dr. Agarwal's Eye Hospital,13.074266000000001,80.23821560000002
+hospital,Selvarangam Hospital,13.085018299999998,80.2244673
+hospital,,12.949834799999996,80.1690781
+hospital,"Sankara Nethralaya, Chennai",13.0670837,80.2505444
+hospital,Royal Hospital - Chennai,13.0449677,80.1846506
+hospital,Viganesh Hospital,13.0309126,80.1715896
+hospital,Sri Lakshmi Multi Speciality Hospital Pvt Ltd,12.964077899999998,80.2461429
+hospital,Dr Agarwal Eye Hospital Ltd,13.113590299999998,80.2270764
+hospital,Karthik Hospital,13.166552099999997,80.3043053
+hospital,Spandana Surgical Centre,13.083445499999998,80.1749497
+hospital,Tosh Hospitals Private Limited,13.082701599999998,80.2424652
+hospital,Sundaram Cancer Centre,13.076039999999999,80.2366224
+hospital,R.R. Eye Instutute and Laser Foundation,13.048399200000002,80.2040416
+hospital,Avm Medical Ent Research Foundation Pvt Ltd,13.044148499999999,80.2637114
+hospital,"Aditya Hospital, Chennai",13.0806801,80.2486159
+hospital,Laser and Laparascopic Hospital,13.043012499999996,80.2371521
+hospital,Lakshmi Maternity Hospital,12.993867299999998,80.2528444
+hospital,Kumaran Hospital Pvt.Ltd.,13.0790289,80.2490893
+hospital,D R J Hospital P. Ltd.,13.121788700000002,80.1996361
+hospital,"Dr Agarwals Eye Hospital Ltd, Chennai",13.038135300000002,80.1619336
+hospital,Apollo Specialty Hospitals Private Limited,13.0177957,80.2711008
+hospital,Amalya Eye Hospital,13.0877615,80.2423476
+hospital,Dr. A. Ramachandran's Diabetes Hospital,13.068533800000003,80.2579902
+hospital,"Srushti Hospital, Ramapuram",13.035348399999998,80.1822808
+hospital,Veecare Eye Hospital,13.0843952,80.2182426
+hospital,Velachery K S Hospital,12.976391399999999,80.2114016
+hospital,K.J. Hospital,13.0790015,80.25267
+hospital,Sathya Physiotherapy Centre,13.044036499999997,80.2336198
+hospital,Kensington Hospital,13.078838200000002,80.2469368
+hospital,Ponmalligai Hospital Pvt Ltd,12.992511600000002,80.2061465
+hospital,Pdr Othopaedic Hospital,13.0389519,80.2290894
+hospital,E V Kalyani Medical Centre,13.042778600000002,80.2706811
+hospital,Yogi Vedha Kumari Hospital,13.0269877,80.2631588
+hospital,Xcellent Care Superspeciality Hospital,12.983389500000001,80.2181782
+hospital,Women and Children Foundation,13.047846500000002,80.2329075
+hospital,சுபிக்ஷா மருத்துவமனை,12.974099100000002,80.1387607
+hospital,"Sudha Hospital, Chennai",13.0791504,80.2541493
+hospital,V.K. Hospital,13.0816938,80.2522811
+hospital,U.K. Hospitals Pvt. Ltd.,13.0838857,80.2252632
+hospital,"Trust Hospital, Chennai",13.089219299999998,80.2415402
+hospital,Titan Eye,13.082342999999996,80.2076291
+hospital,Sai Ortho Care Hospital,13.0332775,80.2371645
+hospital,Sooriya Hospital,13.0481888,80.2035199
+hospital,Centre For Blood Disorders,13.049650199999999,80.2410582
+hospital,Roselin Gandhi Hospital,13.1166714,80.2803303
+hospital,Paterson Cancer Center / Vijaya Health Centre Premises,13.047582599999998,80.2069719
+hospital,Fertility Research Centre,13.055885499999997,80.2481343
+hospital,Spot Hospital,13.047268999999998,80.2187347
+hospital,B B Hospital,13.118420299999999,80.204346
+hospital,Appasamy Krishna Hospital and Medical Research Centre,12.975864699999999,80.2205016
+hospital,"Medindia Hospitals, Chennai",13.060671799999998,80.2432201
+hospital,"Aakash Hospital, Tiruvallur",13.1694824,80.304324
+hospital,K.M. Multi Speciality Hospital,13.1450072,80.2398249
+hospital,Rudhra-Chella Clinicare`N`Cure Services,13.122887800000003,80.293498
+hospital,K.K.R. ENT Hospital and Research Institute(P) Ltd,13.0781955,80.2452886
+hospital,Roy's Heart Foundation,13.034589300000004,80.1836944
+hospital,"Srinivasa Hospital P P N, Chennai",13.0503377,80.2299377
+hospital,Gastro Cre Hospital,13.039406499999998,80.2507684
+hospital,Aaditya Kamaraja Eye Hospital,13.046367599999996,80.1865241
+hospital,Sahishnatha Indtitute Of Maternal And Child Health,12.953189700000001,80.2541614
+police,,13.118822899999998,80.2974617
+police,,13.0757377,80.2775929
+hospital,Siva E N T Hospital,13.061979599999997,80.2741693
+hospital,"Vinayagam Laser Hospital, Chennai",13.0476113,80.2650954
+hospital,"Dr Agarwals Eye Hospital, Triplicane",13.0524884,80.2736449
+hospital,"Dr.Agarwal's Eye Hospital Ltd., Gopala Puram",13.043208499999999,80.259169
+hospital,Bharani Hospital,13.038011100000002,80.2013205
+hospital,Vasantha Hospital,13.173811199999998,80.294082
+hospital,Fortis Vadapalani Hospital,13.047513099999998,80.2042733
+hospital,Tamil Nadu Urological Research Centre Best Kidney Stone Clinic,13.074870799999998,80.2147555
+hospital,Sree Sanjeevi Rayan Hospital,13.1992282,80.1786155
+hospital,Sri Ranga Hospitals,13.0290525,80.2636265
+hospital,Chamiers Day Care Center,13.029727799999998,80.2446245
+hospital,London Harley Street Women And Fertility Centre,12.960972399999996,80.2421492
+hospital,Gas Hospital,13.003025999999998,80.2540981
+hospital,Dr.Bala Subramanian,13.046505599999998,80.2423799
+hospital,Swasthik Health Care center,13.1297134,80.2506039
+hospital,NRV Hospital,13.134680000000001,80.243196
+hospital,Sugam Hospital,13.1685958,80.30428620000002
+hospital,Govt Kilpauk Medical College Hospital,13.07832,80.243753
+hospital,Rasi Hospital,13.12038,80.285818
+hospital,Government Maternity And Child Hospital,13.099174299999998,80.2301988
+hospital,Cloudnine Hospital - Chennai,13.043393699999998,80.2461174
+hospital,Shifa Hospital And Reasearch Centre,13.061987999999998,80.2745135
+hospital,Govt. Stanley Hospital,13.106179999999997,80.286804
+hospital,Subam Specialities Hospitals,13.0469783,80.18950030000002
+hospital,Srisaihospital With Matrinity Facility,13.069263100000002,80.1799109
+hospital,Govt Peripheral Hospital Periyar Nagar,13.115304800000002,80.2233851
+hospital,Be Well Hospital,13.0431134,80.2453103
+hospital,Hera Hospital,13.0508643,80.1922458
+hospital,Government Unani Hospital,13.112901199999998,80.2957982
+hospital,Meenakshi Hospital & Childrens Hospital,13.058664599999997,80.2428501
+hospital,Tanker Dialysis Foundation Unit,13.090410000000002,80.175293
+hospital,Hiba Hospital,13.061619499999997,80.275793
+hospital,A.R.A Hospital For Women,13.0508818,80.2735131
+hospital,Priyas Medical Centre,13.059402399999998,80.1954415
+hospital,Dr. Rai Memorial Medical Centre,13.044837,80.2475507
+hospital,Medway Hospitals,13.053597099999998,80.2275376
+hospital,Seven Wells Hospital,13.099378199999999,80.2825418
+hospital,Government Hospital,13.068807,80.26720780000001
+hospital,Standard Hospital,13.052467499999997,80.1898468
+hospital,Chennai Corporation Hospital,13.114292799999998,80.2844517
+hospital,Guru Raghavendra Hospital,13.041009099999998,80.1964532
+hospital,Varadarajapuram Government Hospitals,13.1126809,80.153358
+hospital,Seethapathy clinic & Hospital,13.0487028,80.2645448
+hospital,Kvt Health Speciality Hospital,13.126753099999997,80.2489796
+hospital,Sakthi Hospital &Reasearch Centre Helath Care Organization,13.057271399999998,80.2757357
+hospital,Women And Children Foundation Hospitals T-Nagar,13.0480821,80.2329957
+hospital,Annai multispeciality hospital,13.0538856,80.1927125
+hospital,Firm Hospital,13.091646399999997,80.2139939
+hospital,The Best Hospital Private Ltd,13.0535089,80.2195494
+hospital,Chennai Corporation Hospital,13.088699999999996,80.256712
+hospital,Triplicane Government Hospital,13.060986,80.2747981
+hospital,Government Hospital For Ladies And Children,13.059056400000001,80.1928218
+hospital,SIMS Hospital,13.056182799999997,80.2478331
+hospital,Tagore Medical College Hospital,12.860133199999998,80.1358744
+hospital,Shri Isari Velan Hospital,12.846692999999998,80.19726130000001
+hospital,Suraj Hospital,12.9107782,80.1967559
+hospital,Sunrays Laproscopic Centre,13.0319129,80.2099892
+hospital,Sriramachandra Hospital,13.0374439,80.1444537
+hospital,Chinna Porur Government Hospital,13.0369528,80.169935
+hospital,Arun Hospital,12.940864399999999,80.1828683
+hospital,Motherhood Hospital,13.031200599999998,80.2511993
+hospital,"Government Hospital, Adyar",12.997949699999996,80.2562121
+hospital,Shree Eye & Maternity Hospital,12.9521921,80.1442251
+hospital,Gunasekaran Hospitals Pvt.Ltd,13.0374624,80.23893890000001
+hospital,"Government Hospital, Tambaram",12.945049999999997,80.13456
+hospital,Vijayam Hospital & Fertility Centre,12.958659999999998,80.187198
+hospital,Kumaran Specialities Hospital,13.039680000000002,80.21204
+hospital,Arokiya hospital,13.037423399999998,80.190944
+hospital,Parvathy Hospital,13.036525,80.1567342
+hospital,Genesis Womens Hospital,13.034922,80.2465468
+hospital,Radhatri Nethralaya,13.034220299999998,80.2398192
+hospital,Kavery Hospital,13.038361999999998,80.2572398
+hospital,Kanamapet Government Hospital,13.0298989,80.2261208
+hospital,Government Hospital Alandur,13.0048164,80.2025432
+hospital,Janani Hospital,13.031323300000002,80.1909256
+hospital,T.K.R. Hospital,12.9342227,80.1807557
+hospital,,13.0753606,80.21879
+hospital,Malar Clinic,12.9645886,80.1958518
+hospital,Prasad Multispeciality Hospital,13.156154000000003,80.301391
+hospital,Uma Hospital,13.1345397,80.2058879
+hospital,Suman Hospital,13.1503301,80.2984201
+hospital,Sankara Eye Hospital,13.165259,80.25871
+hospital,G S Hospital,13.1537616,80.3006482
+hospital,Md Hussain Hospital,13.1702776,80.193567
+hospital,Esha Hospital,13.152172799999999,80.30021460000002
+hospital,Annai Hospital,13.1486276,80.2982812
+hospital,Sekar Hospital,13.152333299999999,80.2998808
+hospital,St. Anthony's Hospital,13.161860999999998,80.204431
+hospital,Kannimaram Hospital,13.047184499999998,80.184358
+hospital,Vasanthi Dental Hospital,13.040181699999998,80.1803453
+hospital,Meenakshi Mission Hospital,13.047262199999999,80.1815603
+hospital,Shanthi Hospital,13.047040899999997,80.1841129
+hospital,Sri Meenachi Hospital,12.850128000000002,80.14034700000002
+hospital,Kathir Memorial Hospital,12.84935,80.141738
+hospital,Dr. Sathish Kumar Institute Of Child Health and Hospital for Children,12.937277000000002,80.1390208
+hospital,Manimegalai Hospital,12.9370716,80.1394473
+hospital,Deepam Rehabilitation Centre,12.916386499999998,80.1789307
+hospital,HCL Health Care,12.9044723,80.216804
+hospital,Ganesh Hospital,12.908258499999999,80.1570082
+hospital,Subasree Hospital,12.916821999999998,80.1940932
+hospital,Centre For Vision and Eye Surgery,12.8948311,80.2233057
+hospital,Shri Sai Children's Hospital and Dental Clinic,12.912213999999999,80.22938400000001
+hospital,Sri Balaji Hospital,12.9178242,80.190331
+hospital,S.V. Hospital,12.9069075,80.2026845
+hospital,Bethel Hospital,12.9114303,80.1563114
+hospital,Sai Babaji's Accupuncture Centre,12.918647200000002,80.1712083
+hospital,SV Hospital,12.931967699999998,80.2326252
+hospital,Shanthi General Hospital,12.9233066,80.15300300000001
+hospital,Karthick Children's Hospital,12.9123221,80.192466
+hospital,Arun Hospital,12.914978400000003,80.1948032
+hospital,Radial Ortho Speciality Hospital,12.913197799999999,80.1915965
+hospital,Jayam Hospital,12.949874900000001,80.2381651
+hospital,Maternity and Child Care Hospital,12.916486599999997,80.1896622
+hospital,Sanjeevi's Ayurveda Therapy Centre,12.9087161,80.1571623
+hospital,Shri Balaji Diabetes Hospital,12.9150069,80.1929516
+hospital,Dhanvantri Multi Speciality,12.9402236,80.2412342
+hospital,Annai Teresa Hospital,12.9184999,80.1892056
+hospital,Government Hospital,12.9073656,80.1571273
+hospital,Prayoga Hospital,12.918236,80.1525123
+hospital,Swaram Hospital and Speciality Clinic,12.9011793,80.2286
+hospital,C-Dot Hospital,12.9072738,80.2027359
+hospital,Mugavari Eye Hospital and Research Institute,12.9167105,80.1921463
+hospital,Global Hospital,12.906006400000003,80.2072713
+hospital,Avinash Ortho Hospital,12.9383762,80.1725401
+hospital,Kavitha Ortho and Multi Speciality Hospital,12.950269099999998,80.1513316
+hospital,Dr. Gomathi Hospital,12.955108,80.131944
+hospital,"Ray's Head, Neck Care Centre-ENT and Dental Clinic",12.954923399999998,80.1340441
+hospital,Sri Santhanakrishna Padmavati Health Care and Research Centre,12.9462077,80.1399766
+hospital,Sri Venkateshwara Hospital,12.954062299999999,80.1339845
+hospital,Dr. Velmurugan Hospital,12.9296419,80.2029589
+hospital,Sri Ram Hospital,12.9499064,80.1349811
+hospital,Kidney Hospital and Diagnostic Centre,12.952495999999998,80.137893
+hospital,AM Hospital,12.9344546,80.1819961
+hospital,TB Hospital,12.9448167,80.1303935
+hospital,HCG Cancer Centre,12.957543400000002,80.143138
+hospital,Sayee Hospitals,12.952194899999997,80.1432074
+hospital,Inbam Hospital,12.933968799999997,80.2041509
+hospital,Thanushika Hospital,12.9503116,80.1513212
+hospital,Hindusthan Hospital,12.939351400000001,80.1806898
+hospital,Puthur Kattu,12.947855600000002,80.1370503
+hospital,RKP Hospital,12.937982899999998,80.1799993
+hospital,Muthu Multi Speciality Hospital and Pharmacy,12.928262999999998,80.200805
+hospital,Kokila Siddha Hospital,12.960669,80.139703
+hospital,Thomas Health Care Centre,12.954493099999999,80.1439701
+hospital,Raj Joty Eye Hospital,12.935220999999999,80.181802
+hospital,Sun Hospital,12.953719799999998,80.143246
+hospital,Apollo Hospitals,12.952055500000002,80.1372784
+hospital,Shailaja Hospital,12.953100400000002,80.1440661
+hospital,Dhanwantari Hospital,12.945243700000002,80.140022
+hospital,Dr. Ashok Kumar Children's Hospital,12.954658999999998,80.134998
+hospital,Venus Accupoint,12.942240599999998,80.1381022
+hospital,Saraswathy Hospital,12.942545199999998,80.1405737
+hospital,V Cure Hospital,12.9280452,80.199546
+hospital,Al Elaj Accupressure and Health Centre,12.956960900000002,80.1424509
+hospital,V.S. Hospital,12.933726,80.1811973
+hospital,Daisy Hospitals,12.957689299999998,80.1429026
+hospital,Shakthi Hospital,12.975365100000001,80.2543198
+hospital,Chennai Emergency Care Centre,12.971280500000002,80.132333
+hospital,JIP Hospital,12.971987199999997,80.1407516
+hospital,Dr. Habeb Child Care Hospital,12.9668133,80.144778
+hospital,Hale and Healthy Hospitals,12.975768599999997,80.2590077
+hospital,Rathna Hospital,13.008747499999998,80.1937172
+hospital,S.S. Hospital,13.003644899999998,80.2030844
+hospital,Dhanraj Hospital,13.001779699999998,80.20332690000001
+hospital,Nalam Hospital,13.0164671,80.1772853
+hospital,Chennai Hospital,12.973474000000001,80.1307991
+hospital,Deenan Health Care,12.9738819,80.1315486
+hospital,Promed Hospital,12.9751423,80.2582571
+hospital,Happy Clinic Hospital,12.9693629,80.2566138
+hospital,Shadithya Hospital,12.971892099999994,80.1445381
+hospital,Jaya Sri Hospital,13.002788300000002,80.207025
+hospital,Kedar Hospital,13.044166299999999,80.1364773
+hospital,Kaanthi Makapperu Hospital,13.003405999999996,80.2063632
+hospital,Medforte Health Care,12.970047499999998,80.1499015
+hospital,Contonment Board General Hospital,12.970589999999998,80.148318
+hospital,Corporation Hospital,12.9915347,80.2615046
+hospital,Relief Dental Hospitals,12.978253,80.258947
+hospital,Accu Hospital,13.041250999999997,80.267354
+hospital,Kalyani Hospital,13.051211099999998,80.273209
+hospital,Triveni Hospital,13.038537099999997,80.2581929
+hospital,SMK Hospital,12.986383,80.260187
+hospital,Uma Sankaran Siddha Hospital,12.991671899999998,80.2624479
+hospital,Vasantha Hospital,13.049060200000001,80.2747953
+hospital,Orthomed Hospital,13.045470299999998,80.2668731
+hospital,Mint Hospitals,13.001349400000004,80.258796
+hospital,Saanvi Fertility Centre Urology and Stone Centre,13.043659099999998,80.2639406
+hospital,The Crescent Hospital,13.0528771,80.2727865
+hospital,Syma Hospital,13.0546321,80.2774772
+hospital,Sri Parthasarathy Hospital,13.054761699999997,80.2756509
+hospital,Ashwini Hospital,12.9890173,80.2599586
+hospital,R.S. Hospital,13.054937499999998,80.2068588
+hospital,Arun Vijaya Hospitals,13.038872999999999,80.192755
+hospital,C.M. Hospital,13.055316699999997,80.2012868
+hospital,Shali Day & Night Hospital,13.051996,80.204702
+hospital,Koncept Hospitals,13.051051000000001,80.243818
+hospital,Diawin Multi Speciality Siddha Hospital,13.052010799999998,80.20765850000001
+hospital,G G Hospital,13.0554543,80.2477343
+hospital,K R S Hospitals,13.061671100000002,80.2434943
+hospital,Sterling Hospitals,13.061636699999998,80.243704
+hospital,Lily Shantha Hospital,13.051636499999999,80.1939117
+hospital,Dr. Maibbar Hospital,13.0594426,80.2459459
+hospital,Swastik Hospital,13.053926600000002,80.1991968
+hospital,Standard Hospital,13.052694299999999,80.1899425
+hospital,MM Hospital,13.052772099999999,80.191781
+hospital,Arun Hospital,13.0514652,80.2031882
+hospital,Krishna Geetham Vaidyasala,13.0538214,80.1989274
+hospital,Agm Hospital,13.080209299999998,80.2522439
+hospital,Dr. Sambandam Eye Hospital,13.088647399999997,80.2416011
+hospital,Sugumar Hospital,13.0828855,80.2709938
+hospital,Ranjith Hospital,13.088884299999998,80.2418555
+hospital,Mythili Hospitals,13.070431899999999,80.2421491
+hospital,Santosham Chest Hospital,13.074663799999998,80.2537976
+hospital,Tune 32 Hospital,13.071545899999995,80.2622655
+hospital,Pandalai Hospital,13.077157499999998,80.2450769
+hospital,Centre For Gastro Esophageal Disorders,13.078642299999997,80.2540859
+hospital,Be Well Hospital,13.080747899999997,80.2340062
+hospital,Puttur Kattu Hospital,13.0812406,80.2506114
+hospital,An-Noor Eye Hospital,13.084958100000001,80.2669979
+hospital,Herbzalive Ayurveda Hospital,13.079387399999998,80.2473996
+hospital,Meta Hospital,13.082673699999999,80.2705905
+hospital,Dr. H. Yogish Hospital,13.0737332,80.2268354
+hospital,Neuro Hospital,13.071343500000001,80.2625981
+hospital,Murugan Hospitals,13.083368399999998,80.234299
+hospital,Amrit Hospital,13.0811868,80.2520834
+hospital,Mercury Hospital,13.071832,80.260048
+hospital,Naz Unani Hospital,13.0850158,80.26999830000001
+hospital,S.K. Selvam Hospital,13.076130299999999,80.2694819
+hospital,Apollo Hospital,13.082573800000002,80.2710331
+hospital,Kola Saraswathi Agarwal Samaj Health Centre,13.081333399999998,80.25539650000002
+hospital,Demo Hospital,13.084403599999998,80.2454945
+hospital,Gremaltes Hospital,13.079315699999999,80.2290477
+hospital,Srl Hospital,13.081420299999998,80.2333756
+hospital,Periyar Maniammai Hospital,13.081149699999997,80.2620778
+hospital,Red Cross Hospital,13.074301,80.267569
+hospital,Ponmalligai Hospitals,13.076858400000003,80.2339377
+hospital,V S Hospital,13.121677100000001,80.2236766
+hospital,Iyyappa Multi Speciality Hospitals,13.1160443,80.2454243
+hospital,GK Hospital,13.113593999999999,80.2394367
+hospital,Dr. Kleela Hospital,13.1155627,80.2457851
+hospital,Bluemed Healthcare,13.129756200000001,80.2172747
+hospital,St. Joseph Cluny Hospital,13.120483700000001,80.2243993
+hospital,Dr. A C Aruldas Hospital,13.1102652,80.2418486
+hospital,Bharathiraja Hospitals,13.1300779,80.216941
+hospital,Kolathur Multi Speciality and Research Centre,13.1222839,80.2160951
+hospital,Arul Childs Hospital,13.118500000000001,80.2258076
+hospital,KCK Hospital,13.129070999999998,80.2159086
+hospital,Sugar Hospital,13.121993999999999,80.2236309
+hospital,Retteri Kumaran Hospital,13.129868999999998,80.214109
+hospital,Government Hospital,13.1093369,80.2312849
+hospital,K.H.M. Hospital,13.129326999999998,80.2152624
+hospital,Sankar Eye Hospital,13.113103799999994,80.2404022
+hospital,Niranjana Hospital,13.110147699999995,80.2244516
+hospital,Parvatham Hospital,13.114842199999998,80.2441515
+hospital,U.S. Hospital,13.1263043,80.2192658
+hospital,Bharani Hospital,13.1106227,80.2374461
+hospital,Sir Ivan Stedford Hospital,13.1247933,80.1435476
+hospital,,13.118385699999997,80.2606286
+police,,12.973830499999998,80.186835
+police,R10 MGR Nagar Police Station,13.031088599999999,80.2017034
+hospital,K.M. Nursing Home,13.037121600000003,80.2013389
+hospital,Military Hospital,13.0117736,80.1941708
+hospital,உழைப்பாளி மருத்துவமனை,13.048724199999997,80.2036274
+hospital,KS Bone and Joint Clinic - Ortho,13.026028999999998,80.212368
+police,R6 Police Booth,13.026500999999996,80.2116238
+hospital,Shens Multi-Speciality Hospital,13.031882799999996,80.2103124
+hospital,Sanjeevani Ayurvedic Hospital,12.912048299999999,80.2489789
+police,,13.050449600000002,80.1828617
+hospital,Prashanth Hospitals,12.9784544,80.2214698
+police,Velachery Police Station,12.980943499999997,80.2209233
+hospital,,13.038145800000002,80.1619363
+hospital,Geri care hospital,13.043932299999998,80.2407095
+hospital,4 Squares Dentistry,12.9214652,80.1651302
+hospital,S B Hospital,12.8461109,80.2263842
+hospital,Chamdhi Netralayam Eye Hospital,13.2086279,80.1698455
+hospital,Shreyas hospital,13.126670099999998,80.2014392
+police,,13.041482799999999,80.1331364
+hospital,Women And Children Foundation Hospital,13.1180276,80.2126037
+hospital,Frame of Mind - SCARF Psychiatric Hospital,13.0972767,80.1982422
+hospital,Vasantha Memorial Cancer Centre,13.040756000000002,80.2146876
+hospital,Dr. Vijay's Hospital,13.085669900000001,80.1797716
+hospital,SMF,13.0868727,80.1697458
+hospital,Jananam fertility centre,12.956914700000004,80.2513405
+hospital,Sugam Hospital,12.962215500000001,80.159938
+hospital,Dental College & Hospital,12.8705153,80.2233736
+hospital,Max Hair Clinic,13.057969100000001,80.2457435
+hospital,,12.891879999999997,80.1770557
+hospital,"Commissioner of Police office, Greater chennai Police",13.081276000000004,80.2631177
+police,Control Room,13.0848694,80.21824660000001
+hospital,,13.0920988,80.2588062
+hospital,Dr Bala's Skin clinic,12.983195899999998,80.2013573
+police,M5 Ennore Police Booth,13.186417899999999,80.3076057
+hospital,,12.980949100000002,80.1871116
+hospital,Meridian Hospitals,13.136324199999999,80.2157688
+hospital,St Anthony's Hospital,13.1396018,80.2377389
+hospital,Vadivelu Hospital,13.1002212,80.2400853
+hospital,Iswarya Fertility Center,13.006489399999998,80.2504829
+police,Srinagar colony police booth,13.0125062,80.2272456
+hospital,Good Shepard hospital,12.9810842,80.2343492
+hospital,RMS Ropheka Multi Speciality Hospitals,13.2035123,80.26614370000001
+hospital,Palaniappa Hospital,13.0275517,80.1832531
+hospital,Bethesda Hospital & Child Care Centre,12.919665700000001,80.1443175
+hospital,Deepam Medfirst Hospital,12.9316216,80.2033854
+hospital,Sri Raghavendra Hospital (sidha),13.1241668,80.2873329
+hospital,Ayanavaram 24 hours hospital,13.098684299999999,80.2336168
+police,"K2 Police Station, Ayanavaram",13.093795,80.2409682
+police,R-5 Virugambakkam Police Station,13.0571823,80.1995238
+hospital,Helios Advanced Skin Hair & Laser Clinic Pvt Ltd,13.0347504,80.2547353
+hospital,Royapettah Government Hospital,13.05424002552685,80.2649697247644
+hospital,Rajiv Gandhi Government General Hospital,13.0808311659423,80.27739336923675
+hospital,Stanley Medical College and Hospital,13.106404287899155,80.2841213759839
+hospital,,13.005423739974555,80.23971324115531
+hospital,Sri Ramachandra Institute of Higher Education and Research,13.041008114166086,80.14257437047279
+hospital,Tt Ranganathan Clinical Research Foundation,12.992365786448927,80.25501401537194
+hospital,IMPCOPS Traditional Hospital,12.993136436758267,80.25722839067497
+hospital,Egmore Eye Hospital,13.070176480899166,80.26014672162432
+hospital,ESI Hospital,13.094992533294821,80.23967752446053
+hospital,Government Hospital of Thoracic Medicine,12.942084110787254,80.12895706228433
+hospital,Cantonment General Hospital,13.00959977619653,80.19503492100485
+hospital,Communicable Diseases Hospital,13.128653965438108,80.29277618210743
+hospital,புனித இஸ்பேல் மருத்துவமனை,13.038622123233624,80.2621056912173
+hospital,Parvathy Hospital,12.94607498244123,80.13674534040433
+hospital,Chennai Krishna Hospital,12.946369465411577,80.13698635885736
+hospital,Stanley Medical College and Hospital,13.104392602499342,80.28336301374594
+hospital,,13.097789421751708,80.2456741999414
+hospital,ICF Hospital,13.099886478422764,80.2139068720324
+hospital,Anna Nagar Government Hospital,13.095434066466584,80.21979998811356
+hospital,,13.09335129163311,80.24037619509949
+hospital,"அறிஞர் அண்ணா அரசு இந்திய,மருத்துவமனை,அரும்பாக்கம்,சென்னை-106",13.077083180358363,80.21878854609616
+hospital,Govt Peripheral Hospital KK Nagar,13.034145817232137,80.20773266003735
+hospital,Ayurveda Hospital,12.97052120281499,80.2601174374508
+hospital,Apollo Hospital,12.963071312644352,80.24571371666319
+hospital,Prashanth Hospitals,13.069572479601996,80.23632573330902
+hospital,Sir Ivan Stedford Hospital,13.12543354536994,80.14437247541119
+hospital,Udhi Eye Hospitals,13.039159362788165,80.25714214795532
+hospital,Agarwal Eye Hospital,13.046066015704639,80.25572067915692
+hospital,Aswene Soundarya Hospital,13.044712227515655,80.25616105493825
+hospital,Global Hospitals,13.009818304774726,80.25147085560535
+hospital,Government Rsrm Lying Hospital,13.10905269600748,80.28874788431717
+hospital,Sree Balaji Medical College And Hospital,12.954901128684746,80.13820903830255
+hospital,Health Centre,13.013608850671654,80.23933228306711
+hospital,Apollo Clinic & Pharmacy,13.036097200020798,80.25726459999967
+police,Mylapore E1 PS,13.036033191592365,80.27015675093253
+hospital,Trinity Acute Care,13.038560955103875,80.25785644235593
+hospital,Sankara Nethralaya,13.066851632552739,80.24936657570086
+hospital,Apollo Hospital,13.063127911810463,80.25160717538859
+hospital,CSI Kalyani Hospital,13.043311476630988,80.27238405642846
+hospital,EV Kalyani Hospital,13.042372429448802,80.27089446989962
+hospital,Kasturibai Gandhi Hospital,13.059405560231715,80.27828382911255
+police,Periamet PS,13.083111821081047,80.27091201376466
+hospital,,13.052729276666255,80.28067975667818
+police,,13.059065029212949,80.27063791558423
+hospital,Cancer Hospital,13.00936036614549,80.24844551465273
+hospital,சைதாப்பேட்டை அரசு மருத்துவமனை,13.020454125009543,80.22405278822987
+police,R1 Police Station,13.034764321367891,80.22949335521213
+police,Esplanade PS,13.08649432887467,80.28535660834476
+hospital,ஆந்திர மாநில சபா,13.017812237120275,80.25970596764571
+police,F4 Greams Road PS,13.059835306482384,80.2547971433164
+hospital,Mehta Hospital,13.071894289938967,80.24079355518793
+hospital,Corporation Baby Hospital,13.097180078303555,80.27541488499887
+hospital,C.S.I. Rainy Multi Speciality Hospital,13.11799313449397,80.29088831177364
+police,,13.123196894350365,80.28731422420323
+hospital,Government Peripheral Hospital,13.126005208999748,80.28663040072884
+hospital,ESI,13.126987254384824,80.29115672085956
+police,,13.10003314173914,80.2601416210035
+police,Peravallur Police Station,13.111387096596975,80.22637527905641
+police,,13.09343446542009,80.24342803262549
+hospital,Tamil Nadu Government Multi Super Speciality Hospital,13.069443257983302,80.27403428058179
+police,D1 Triplicane Police Station,13.067254725068079,80.27367754128498
+hospital,Billroth Hospital,13.02735089005906,80.25675277969968
+hospital,Fortis Malar Hospital,13.01016235757176,80.25860277864783
+hospital,Gowri Nursing Home,12.977398780375525,80.18833171179138
+police,K4 Police Station,13.092542732709019,80.21797043816981
+hospital,Vasan Dental Care,13.092085541268297,80.21856215226394
+hospital,,13.084888570384143,80.28264200942472
+hospital,Police Hospital,13.074435685087545,80.25946067282632
+hospital,Kanchi Kamakoti Childs Trust Hospital,13.057357157332461,80.24590494855539
+police,R3 Ashok Nagar Police Station,13.044077525284312,80.21729561977126
+hospital,,13.092245000651856,80.25939111236049
+police,Abhiramapuram,13.033256194376056,80.25596712396032
+police,F2 Egmore Police Station,13.07507246197142,80.25701402788933
+hospital,Chennai Corporation 24 Hours Maternity Hospital,13.020876042063747,80.224124650348
+police,Selaiyur Police Station,12.922952417054747,80.13523030020652
+hospital,Apollo Speciality Hospital - Block A,13.033633073574267,80.24517412481556
+hospital,Apollo Speciality Hospital - Block B,13.033613451162159,80.24564303892275
+hospital,Apollo Speciality Hospital - Block C,13.033933814435631,80.2456640112728
+hospital,Chennai Clinical Centres,12.994199743989823,80.25162712990068
+hospital,Public Health Centre (In Patient Block),13.036008142982107,80.22183689937617
+hospital,Public Health Centre (Out Patient Block),13.0363286093558,80.22196708362597
+hospital,Chitra Maternity andSurgival Centre,13.023435746085529,80.22291245657294
+hospital,Bora Hospital,13.022310950015024,80.22227789999833
+hospital,Vasan,13.021753142796975,80.22576702454812
+police,Police Station - J1 - Saidapet,13.022424283713608,80.22608476518965
+hospital,SRM Hospital,13.04179522212897,80.22464681052449
+hospital,Guest Hospital,13.07722447531366,80.23875319693254
+hospital,Frontier Lifeline Hospital,13.087524290976587,80.18573217453887
+hospital,Essvee Hospital,13.123230289140992,80.14606454961537
+hospital,Hande Medical Centre,13.061183911049676,80.24662284321336
+hospital,Mahalakshmi Multi-Speciality Hospital,13.12271408450424,80.1469008843925
+police,E5 Foreshore Estate Police Station,13.024555309397812,80.27481547222553
+hospital,Balaji Hospital (P) Ltd,13.007397169632243,80.20609151947154
+hospital,Sugam Hospitals,12.961785582060283,80.14670109153738
+hospital,Chennai Medical Centre,13.038103987815331,80.18906418053933
+hospital,,12.98566043480412,80.22891302299556
+hospital,Chennai Fertility Center,13.069036644817198,80.22576141637819
+hospital,J.V. Hospitals Llp,13.05056637762895,80.22990344509206
+hospital,R.R Dental Hospital,13.051900499998743,80.22926069999754
+hospital,JV Hospital,13.050553775833757,80.22975310590964
+hospital,Viganesh Hospital,13.030866085414793,80.17174161636935
+hospital,Chennai Heritage Hospital,13.065371450016292,80.21199089999594
+hospital,Xcellent Care Hospital,12.98563588790315,80.21840862858461
+hospital,Be Well Hospitals,13.079443358301724,80.19832520313173
+hospital,MN Eye Hospital,13.122940442148234,80.28750875930695
+hospital,Chennai National Hospital,13.096398383884987,80.29143767738333
+hospital,Diha Clinic,12.980951597022761,80.18711559847236
+hospital,Athipathy Hospitals,12.976433906986667,80.22219002358268
+hospital,Dr.Kamakshi Memorial Hospital,12.949212568489363,80.2091169803189
+hospital,Shivasundar Hospital,12.997769431938544,80.25747616229035
+hospital,CMC Hospital,13.038076300002748,80.1889032999997
+hospital,corporation hospital,12.984691887569273,80.25733968541793
+hospital,,13.123560001451988,80.26621872060375
+police,,12.984586237955074,80.26114628207839
+hospital,Gleneagles Global Heath City,12.898177977407352,80.20612428000989
+police,Ambattur T1 Police Station,13.107312711119352,80.15254630872354
+hospital,Tiruvottiyur Government Hospital,13.157604440971152,80.30127147222058
+hospital,,13.14857488848192,80.29948054813327
+hospital,,12.969423808701965,80.18511855849478
+police,Guindy J3 Police station,13.009356612364225,80.21069260977548
+police,B1 North Beach Police Station,13.089921530028917,80.29045779286815
+police,C3 Seven Wells Police Station,13.098887849993472,80.2816944999985
+police,C5 Kothavalchavadi Police Station,13.094034650012738,80.28546015000224
+police,C1 Flower Bazaar Police Station,13.088406520824979,80.28170898379778
+police,C1 Flower Bazaar Police Booth,13.088371095710801,80.28239317017605
+police,H1 Washermanpet Police Station,13.108661379935029,80.28091989077474
+police,P2 Otteri Police Station,13.100332298527864,80.25156291094355
+police,E3 Teynampet Police Assistance Booth,13.031304543256367,80.23984116485438
+police,Office of the Director General of Police Civil Supplies CID Chennai,13.030051599986779,80.24323539996745
+hospital,Chennai National Hospital Speciality Clinics,13.094812970414862,80.29144435302234
+police,C2 Elephant Gate Police Station,13.092630639561657,80.27501242489423
+police,"Office of the Deputy Commissioner of Police, Pudupet",13.068638658026934,80.26205817506695
+police,N3 Muthialpet Police Station,13.099840595678264,80.28700819836135
+hospital,SA Hospital,13.099143584413856,80.28690264876283
+police,D5 Marina Police Station,13.039148786203604,80.27931872533946
+police,B1 North Beach Police Station,13.096621749561493,80.29151248411665
+police,G7 Chetpet Police Station,13.072534587438508,80.25206727376752
+police,D2 Anna Salai (Mount Road) Poice Station,13.061062053010245,80.2622319344609
+police,Tamil Nadu Police Computer Communication Centre,13.02251388971855,80.27138545645207
+police,Tamil Nadu State Crime Records Bureau,13.022806016843258,80.27163394715005
+police,Elliots Beach Police Outpost,13.000713950000401,80.27122009999988
+hospital,Prashanth Superspeciality Hospital Kolathur,13.140054823862208,80.21765390636332
+police,C5 Kothavalchavadi Police Station,13.095344222427569,80.28072401460092
+hospital,Shaarave Hospital,13.098393704329988,80.27987732001016
+hospital,The Arya Vysya Meternity Home and Child Welfare Centre,13.09109040250112,80.28138792983901
+hospital,Cherish Hospital,13.12970666021156,80.13098462599318
+hospital,Mint Hospital,13.100229862148016,80.28375978928061
+hospital,,13.09851086799917,80.2796361560122
+hospital,Vinitha Multi Speciality Hospital,13.054486313929095,80.2453963316303
+hospital,Dr. Mehta's Hospitals - Global Campus,13.061787838369844,80.13569762756971
+hospital,Government child birth Hospital,13.076557068668148,80.22456882434831
+police,T-1 Police Station,13.13066127691067,80.1587022216158
+hospital,Chennai Urology & Robotics Institute,12.952044370490624,80.24124104718162
+hospital,Govt. Kilpauk Hospital,13.076738005866144,80.24290656427412
+hospital,Gynmc PG Block,13.07697532151872,80.2174925040618
+police,T-13 Chitlapakkam Police Station,12.939537158514447,80.13799915645889
+hospital,Dr. Agarwal's Eye Hospital - Ambattur,13.121869398409327,80.14727879231906
+hospital,Mother's Speciality Hospital,13.12100778319843,80.14984485731978
+hospital,Mother's Hospital - General & Laparoscopic center,13.120951920232784,80.14952621748226
+hospital,Rakki Hospital,13.121658281174039,80.15126084945022
+hospital,MMC Government Hospital,13.163478679047996,80.24371877991052
+hospital,,12.941489348477416,80.13038371961898
+police,டி-16 செம்மஞ்சேரி காவல் நிலையம்,12.899694688708976,80.22756540197754
+police,டி-3 பல்லாவரம் காவல் நிலையம்,12.971568533772434,80.14856603391736
+police,எஸ்4 நந்தம்பாக்கம் காவல் நிலையம்,13.018226580851017,80.18658736500097
+hospital,Kauvery Hospitals,12.948107114159285,80.18960415754597

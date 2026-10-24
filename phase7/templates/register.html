@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register — SafeRoute</title>
+{% include "_auth_style.html" %}
+</head>
+<body>
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-badge">SR</div>
+      <div>
+        <h1>SafeRoute</h1>
+        <p>Women's safety navigator</p>
+      </div>
+    </div>
+
+    <h2>Create your account</h2>
+    <p class="subtitle">Your emergency contacts will be used if you ever trigger SOS.</p>
+
+    <form id="register-form">
+      <div class="row2">
+        <div>
+          <label for="first_name">First name</label>
+          <input id="first_name" name="first_name" type="text" required />
+        </div>
+        <div>
+          <label for="last_name">Last name</label>
+          <input id="last_name" name="last_name" type="text" required />
+        </div>
+      </div>
+
+      <label for="mobile">Mobile number</label>
+      <input id="mobile" name="mobile" type="tel" placeholder="10-digit mobile number" maxlength="10" required />
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" minlength="8" required />
+      <div class="hint">At least 8 characters.</div>
+
+      <label for="address">Permanent address</label>
+      <input id="address" name="address" type="text" required />
+
+      <label for="nationality">Nationality</label>
+      <input id="nationality" name="nationality" type="text" placeholder="e.g. Indian" required />
+
+      <fieldset>
+        <legend>Emergency contacts (numbers and emails must differ from your own, and from each other)</legend>
+        <label for="emergency_contact_1">Emergency contact 1 — mobile number</label>
+        <input id="emergency_contact_1" name="emergency_contact_1" type="tel" maxlength="10" required />
+        <label for="emergency_email_1">Emergency contact 1 — email id</label>
+        <input id="emergency_email_1" name="emergency_email_1" type="email" required />
+
+        <label for="emergency_contact_2">Emergency contact 2 — mobile number</label>
+        <input id="emergency_contact_2" name="emergency_contact_2" type="tel" maxlength="10" required />
+        <label for="emergency_email_2">Emergency contact 2 — email id</label>
+        <input id="emergency_email_2" name="emergency_email_2" type="email" required />
+
+        <label for="emergency_contact_3">Emergency contact 3 — mobile number</label>
+        <input id="emergency_contact_3" name="emergency_contact_3" type="tel" maxlength="10" required />
+        <label for="emergency_email_3">Emergency contact 3 — email id</label>
+        <input id="emergency_email_3" name="emergency_email_3" type="email" required />
+        <div class="hint">An SOS email with your location is sent to these addresses when you press SOS.</div>
+      </fieldset>
+
+      <button class="btn-primary" type="submit">Create account</button>
+
+      <div class="error-box" id="error-box"><strong>Please fix the following:</strong><ul id="error-list"></ul></div>
+      <div class="success-box" id="success-box">Account created! Taking you to the map…</div>
+    </form>
+
+    <p class="switch-link">Already have an account? <a href="/login">Sign in</a></p>
+  </div>
+
+<script>
+  const form = document.getElementById('register-form');
+  const errorBox = document.getElementById('error-box');
+  const errorList = document.getElementById('error-list');
+  const successBox = document.getElementById('success-box');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBox.style.display = 'none';
+    successBox.style.display = 'none';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // quick client-side check so the user doesn't have to wait for a
+    // round-trip to the server to learn they reused their own number --
+    // the server re-checks all of this itself regardless.
+    const own = data.mobile;
+    const contacts = [data.emergency_contact_1, data.emergency_contact_2, data.emergency_contact_3];
+    const clientErrors = [];
+    if (contacts.includes(own)) {
+      clientErrors.push('An emergency contact number cannot be the same as your own mobile number.');
+    }
+    if (new Set(contacts).size !== contacts.length) {
+      clientErrors.push('The three emergency contact numbers must all be different from each other.');
+    }
+    const ownEmail = (data.email || '').trim().toLowerCase();
+    const emails = [data.emergency_email_1, data.emergency_email_2, data.emergency_email_3]
+      .map(x => (x || '').trim().toLowerCase());
+    if (emails.includes(ownEmail)) {
+      clientErrors.push('An emergency contact email cannot be the same as your own email.');
+    }
+    if (new Set(emails).size !== emails.length) {
+      clientErrors.push('The three emergency contact emails must all be different from each other.');
+    }
+    if (clientErrors.length) {
+      errorList.innerHTML = clientErrors.map(e => `<li>${e}</li>`).join('');
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.ok) {
+        successBox.style.display = 'block';
+        setTimeout(() => { window.location.href = result.redirect || '/'; }, 900);
+      } else {
+        errorList.innerHTML = (result.errors || ['Something went wrong.']).map(e => `<li>${e}</li>`).join('');
+        errorBox.style.display = 'block';
+      }
+    } catch (err) {
+      errorList.innerHTML = '<li>Could not reach the server. Is app.py running?</li>';
+      errorBox.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
